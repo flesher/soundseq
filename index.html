@@ -4,9 +4,43 @@
     <meta charset="utf-8"/>
     <title>Music Hack Day</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
+
+    <div id="container" class="clear">
+        
+        <nav id="primary" class="clear">
+            <div class="icon play" id="playpause"></div>
+            <div class="icon current" id="gyro"></div>
+            <div class="icon" id="touch"></div>
+            <div class="icon" id="load"></div>
+        </nav>
+
+        <section id="parts" class="clear">
+            <div data-part="1"></div>
+            <div class="current" data-part="2"></div>
+            <div data-part="3"></div>
+            <div data-part="4"></div>
+            <div data-part="5"></div>
+            <div data-part="6"></div>
+            <div data-part="7"></div>
+            <div data-part="8"></div>
+        </section><!-- #parts -->
+
+        <section id="sections">
+            <div data-section="1"></div>
+            <div data-section="2"></div>
+            <div data-section="3" class="current"></div>
+            <div data-section="4"></div>
+            <div data-section="5"></div>
+            <div data-section="6"></div>
+            <div data-section="7"></div>
+            <div data-section="8"></div>
+        </section><!-- #sections -->
+
+    </div><!-- #container -->
 
     <!-- libs -->
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
