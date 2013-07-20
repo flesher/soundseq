@@ -55,6 +55,9 @@ track1.ready(function() {
 
     sliceToPlay = sequence[seq][phase];
 
+    $('#parts div').removeClass('current');
+    $('#parts div[data-part="'+num+'"]').addClass('current');
+
     console.log(sliceToPlay + ' ' + phase);
 
     sound.play(sprite[sliceToPlay]);
