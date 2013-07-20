@@ -58,18 +58,23 @@ nav#primary {
     padding-top: 15px;
     cursor: pointer;
     margin-right: 2px;
+    -khtml-user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 
     &.current {
       background: @selected-color;
     }
   }
 
-  .play:before {
+  #playpause:before {
     content: "\F04B"; 
   }
 
-  .pause:before {
-    content: "\F04C";
+  .paused:before {
+    content: "\F04C" !important;
   }
 
   #gyro:before{
@@ -100,7 +105,7 @@ section#parts {
     width: 12.5%;
     color: white;
     background: #333;
-    height: 200px;
+    height: 100%;
     border-right: 2px solid black;
     float: left;
     cursor: pointer;
@@ -114,7 +119,7 @@ section#parts {
 
 
 section#sections {
-  height: 30%;
+  height: 50px;
   padding-top: 2px;
 
   div {

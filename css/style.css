@@ -52,15 +52,20 @@ nav#primary div {
   padding-top: 15px;
   cursor: pointer;
   margin-right: 2px;
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 nav#primary div.current {
   background: #00aeec;
 }
-nav#primary .play:before {
+nav#primary #playpause:before {
   content: "\F04B";
 }
-nav#primary .pause:before {
-  content: "\F04C";
+nav#primary .paused:before {
+  content: "\F04C" !important;
 }
 nav#primary #gyro:before {
   content: "\F07E";
@@ -84,7 +89,7 @@ section#parts div {
   width: 12.5%;
   color: white;
   background: #333;
-  height: 200px;
+  height: 100%;
   border-right: 2px solid black;
   float: left;
   cursor: pointer;
@@ -93,7 +98,7 @@ section#parts div.current {
   background: #00aeec;
 }
 section#sections {
-  height: 30%;
+  height: 50px;
   padding-top: 2px;
 }
 section#sections div {
