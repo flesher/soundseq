@@ -97,6 +97,7 @@ Track.prototype.ready = function(callback) {
 // basic track data (also accessible as track.profile.key)
 Track.prototype.artist   = function() { return this.profile.artist; }
 Track.prototype.duration = function() { return this.profile.duration; }
+Track.prototype.tempo    = function() { return this.profile.audio_summary.tempo; }
 
 //
 // get a track section
