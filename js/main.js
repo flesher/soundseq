@@ -1,5 +1,6 @@
 (function(){
-
+  var phase        = 0;
+  var steps        = 8;
   var BPM          = 120;
   var beatInterval = 1000 / (BPM/60);
 
@@ -20,8 +21,12 @@
   setInterval(function(){
     var num = Math.floor(Math.random() * 8);
     var sprite = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
-    console.log(num);
-    sound.play(sprite[num]);
+
+    phase += 1;
+    if (phase > 7) phase = 0;
+
+    console.log(phase);
+    sound.play(sprite[phase]);
   }, beatInterval * 2);
 
 })();
