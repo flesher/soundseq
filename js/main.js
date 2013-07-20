@@ -19,7 +19,8 @@ track1.ready(function() {
 
   console.log('track ready', track1.profile, track1.analysis);
 
-  var BPM          = track1.profile.audio_summary.tempo;
+  var BPM          = track1.tempo();
+  console.log(BPM);
   var beatInterval = 1000 / (BPM/60);
 
     var sound = new Howl({
