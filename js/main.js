@@ -1,4 +1,3 @@
-
 var phase  = 0;
 var seq    = 0;
 var sequence = [  
@@ -40,7 +39,6 @@ track1.ready(function() {
     }
   });
 
-
   $('button').click(function(){
     seq += 1;
     console.log(seq);
@@ -54,13 +52,8 @@ track1.ready(function() {
     var sliceToPlay;
 
     sliceToPlay = sequence[seq][phase];
-
-    console.log(sliceToPlay + ' ' + phase);
-
     sound.play(sprite[sliceToPlay]);
-
     loop();
-
     phase += 1;
     if (phase > 7) phase = 0;
   }
