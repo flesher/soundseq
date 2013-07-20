@@ -1,8 +1,3 @@
-
-(function(){
-  var phase        = 0;
-  var steps        = 8;
-
 //
 // starting point for the application
 //
@@ -12,21 +7,22 @@ track1.ready(function() {
 
   console.log('track ready', track1.profile, track1.analysis);
 
-
+  var phase        = 0;
+  var steps        = 8;
   var BPM          = 120;
   var beatInterval = 1000 / (BPM/60);
 
   var sound = new Howl({
     urls: [track1.file],
     sprite: {
-      one   : [0, beatInterval * 2],
-      two   : [beatInterval * 2, beatInterval * 2],
-      three : [beatInterval * 4, beatInterval * 2],
-      four  : [beatInterval * 6, beatInterval * 2],
-      five  : [beatInterval * 8, beatInterval * 2],
-      six   : [beatInterval * 10, beatInterval * 2],
-      seven : [beatInterval * 12, beatInterval * 2],
-      eight : [beatInterval * 14, beatInterval * 2]
+      one   : track1.beat(1, 0),
+      two   : track1.beat(1, 1),
+      three : track1.beat(1, 2),
+      four  : track1.beat(1, 3),
+      five  : track1.beat(1, 4),
+      six   : track1.beat(1, 5),
+      seven : track1.beat(1, 6),
+      eight : track1.beat(1, 7)
     }
   });
 

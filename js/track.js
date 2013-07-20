@@ -10,6 +10,7 @@ function Track(index) {
   this.file     = this.track.file;
   this.profile  = {};
   this.analysis = {};
+  this.sections = [];
 
   // load the profile first
   $.ajax({
@@ -38,6 +39,7 @@ function Track(index) {
         },
         success: function(data, textStatus, jqXHR) {
           this.analysis = data;
+          this.init();
 
           // execute any ready callbacks, when/if DOM is ready
           callbacks = this.readyFn;
@@ -54,6 +56,36 @@ function Track(index) {
 }
 
 //
+// what data is usable, and format it into something we can use
+//
+Track.prototype.init = function() {
+  analysis = this.analysis;
+
+  // 1) find usable sections
+  var sections = [];
+  _.each(analysis.sections, function(sect) {
+
+    // must have high confidence to be usable
+    if (sect.confidence > 0.5) {
+      sect.end = sect.start + sect.duration;
+
+      // 2) find the beats of this section
+      sect.beats = _.filter(analysis.beats, function(beat) {
+        beat.end = beat.start + beat.duration;
+        return (beat.start >= sect.start && beat.end <= sect.end);
+      });
+
+      // use it!
+      sections.push(sect);
+    }
+  });
+
+  // assign it
+  this.sections = sections;
+}
+
+
+//
 // public methods
 //
 
@@ -66,5 +98,17 @@ Track.prototype.ready = function(callback) {
 Track.prototype.artist   = function() { return this.profile.artist; }
 Track.prototype.duration = function() { return this.profile.duration; }
 
-// advanced track data
-// TODO
+//
+// get a track section
+//
+Track.prototype.section = function(idx) {
+  return this.sections[idx];
+}
+
+//
+// get a normalized beat within a section - [startTime, duration]
+//
+Track.prototype.beat = function(sectionIdx, beatIdx) {
+  var beat = this.sections[sectionIdx].beats[beatIdx];
+  return [beat.start * 1000, beat.duration * 1000];
+}
