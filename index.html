@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta name = "viewport" content = "initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
   </head>
   <body>
 
@@ -19,14 +20,14 @@
         </nav>
 
         <section id="parts" class="clear">
+            <div data-part="0"></div>
             <div data-part="1"></div>
-            <div class="current" data-part="2"></div>
+            <div data-part="2"></div>
             <div data-part="3"></div>
             <div data-part="4"></div>
             <div data-part="5"></div>
             <div data-part="6"></div>
             <div data-part="7"></div>
-            <div data-part="8"></div>
         </section><!-- #parts -->
 
         <section id="sections">
@@ -57,6 +58,8 @@
 
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
     <script>window.Backbone || document.write('<script src="js/libs/backbone.js">\x3C/script>')</script>
+
+    <script type="text/javascript" src="js/libs/jquery.tap.min.js"></script>
 
     <script type="text/javascript" src="js/libs/howler.min.js"></script>
     <!-- end libs -->

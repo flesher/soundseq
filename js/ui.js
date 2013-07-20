@@ -16,12 +16,12 @@ $(document).ready(function(){
     initUI();     
   });
 
-  $('#playpause').click(function(){
+  $('#playpause').on('tap', function(){
     $(this).toggleClass('paused');
     //sound.toggle;
   });
 
-  $('#touch, #gyro').click(function(){
+  $('#touch, #gyro').on('tap', function(){
     $('#touch, #gyro').removeClass('current');
     $(this).addClass('current');
   })
