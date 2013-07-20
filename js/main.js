@@ -1,10 +1,17 @@
-(function(){
+//
+// starting point for the application
+//
+var track1 = new Track(0);
+
+track1.ready(function() {
+
+  console.log('track ready', track1.profile, track1.analysis);
 
   var BPM          = 120;
   var beatInterval = 1000 / (BPM/60);
 
   var sound = new Howl({
-    urls: ['music/pl-loop.mp3'],
+    urls: [track1.file],
     sprite: {
       one   : [0, beatInterval * 2],
       two   : [beatInterval * 2, beatInterval * 2],
@@ -24,4 +31,4 @@
     sound.play(sprite[num]);
   }, beatInterval * 2);
 
-})();
+});
