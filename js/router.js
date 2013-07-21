@@ -26,6 +26,9 @@
 
   app_router.on('route:defaultRoute', function() {
     $("#intro .tracks").html('');
+    if (!$('#playpause').hasClass('paused')) {
+      $('#playpause').trigger('tap');
+    }
 
     // show the configured tracks
     _.each(CONFIG.TRACKS, function(track, idx) {
