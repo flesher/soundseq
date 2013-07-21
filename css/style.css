@@ -43,9 +43,9 @@ nav#primary {
   height: 50px;
 }
 nav#primary div {
-  width: 80px;
+  width: 78px;
   height: 50px;
-  background: #333;
+  background: #232c30;
   float: left;
   color: white;
   text-align: center;
@@ -88,11 +88,15 @@ section#parts {
 section#parts div {
   width: 12.5%;
   color: white;
-  background: #333;
+  background: #232c30;
   height: 100%;
   border-right: 2px solid black;
   float: left;
   cursor: pointer;
+  -webkit-transition: background-color 800ms ease;
+  -moz-transition: background-color 800ms ease;
+  -ms-transition: background-color 800ms ease;
+  -o-transition: background-color 800ms ease;
 }
 section#parts div.current {
   background: #00aeec;
@@ -104,7 +108,7 @@ section#sections {
 section#sections div {
   width: 12.5%;
   color: white;
-  background: #333;
+  background: #232c30;
   content: "yeah";
   height: 50px;
   border-right: 2px solid black;
