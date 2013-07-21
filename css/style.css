@@ -230,6 +230,8 @@ section#parts {
   padding-top: 2px;
 }
 section#parts .part {
+  text-align: center;
+  position: relative;
   width: 12.5%;
   color: white;
   background: #232c30;
@@ -242,11 +244,23 @@ section#parts .part {
   -ms-transition: background-color 600ms ease;
   -o-transition: background-color 600ms ease;
 }
+section#parts .part span {
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  font-size: 2em;
+  left: 50%;
+  margin-left: -8px;
+  color: rgba(0, 0, 0, 0.3);
+}
 section#parts .part:nth-child(odd) {
   background: #1f272a;
 }
 section#parts .part.current {
   background: #00aeec;
+}
+section#parts .part.current span {
+  color: rgba(255, 255, 255, 0.3);
 }
 section#parts .part.flash {
   background: white;
@@ -297,6 +311,7 @@ section#sections {
 }
 section#sections .section {
   width: 12.5%;
+  position: relative;
   color: white;
   background: #232c30;
   content: "yeah";
@@ -305,8 +320,21 @@ section#sections .section {
   float: left;
   cursor: pointer;
 }
+section#sections .section span {
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  margin-top: -15px;
+  font-size: 2em;
+  left: 50%;
+  margin-left: -8px;
+  color: rgba(0, 0, 0, 0.3);
+}
 section#sections .section.current {
   background: #00aeec;
+}
+section#sections .section.current span {
+  color: rgba(255, 255, 255, 0.3);
 }
 section#sections .section.queued {
   -webkit-animation: pulse 300ms ease infinite;
@@ -344,6 +372,9 @@ section#sections .section .part.flash {
   left: 0;
 }
 @media all and (max-width: 700px) {
+  span {
+    display: none;
+  }
   nav#primary {
     height: 70px;
   }
