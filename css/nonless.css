@@ -25,3 +25,40 @@
   background: #000 url(../loader.gif) no-repeat 50% 50%;
   z-index: 50;
 }
+
+#overlay {
+  display: none;
+  z-index: 50;
+  position: fixed;
+  top: 0;
+  background: #f3f3f3;
+  width: 100%;
+}
+
+#overlay > div {
+  display: block; 
+  text-align: center;
+  margin: 100px 0 40px 0;
+}
+
+#overlay button {
+  display: block;
+  margin: 0 auto;
+  padding: 20px 60px;
+  border: 0 none;
+  border-radius: 2px 2px 2px 2px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 20px;
+  padding: 7px 10px;
+  text-transform: none;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  width: 16.795%; /* auto */
+  text-align: center; /* DELETE WHEN WIDTH AUTO */
+  background: #00aeec;
+}

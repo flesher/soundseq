@@ -12,6 +12,7 @@ $(document).ready(function(){
     $('#parts').height(partsHeight +'px');
     $('#intro').height(windowHeight + 'px');
     $('#preloader').height(windowHeight + 'px');
+    $('#overlay').height(windowHeight + 'px');
   }
 
   initUI();

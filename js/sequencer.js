@@ -101,6 +101,8 @@ Sequencer.prototype.record = function() {
   if (this._armed) {
     this._rec.stop();
     this._armed = false;
+    this.howl.stop();
+    $('#overlay').fadeIn(500);
 
     // initialize client with app credentials
     // SC.initialize({

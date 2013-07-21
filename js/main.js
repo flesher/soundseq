@@ -5,6 +5,8 @@
 // when track-meta and audio-file are loaded
 var sequencer = new Sequencer();
 sequencer.on('ready', function() {
+  sequencer.howl.play();
+  sequencer.howl.pause();
   $('#preloader').trigger('loaded');
 });
 

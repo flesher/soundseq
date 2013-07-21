@@ -16,7 +16,6 @@
 
   app_router.on('route:sequencer', function() {
     $('#intro').fadeOut();
-
     $('#preloader').on('loaded', function(){
       $(this).fadeOut(500);
     });
