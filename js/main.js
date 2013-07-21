@@ -1,7 +1,7 @@
 //
 // starting point for the application
 //
-var track1 = new Track(0);
+var track1 = new Track(3);
 var sequencer = new Sequencer(track1);
 
 $(function() {
@@ -11,6 +11,7 @@ $(function() {
     $('#parts .part, #sections .section .part').removeClass('current');
     $('#parts .part[data-part="'+beat+'"]').addClass('current');
     $('#parts .part[data-part="'+beat+'"],#sections .section.current .part[data-part="'+beat+'"]').addClass('current');
+    $('#parts .part.queued, #sections .section.queued').removeClass('queued');
   });
 
   // play button
