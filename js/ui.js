@@ -252,6 +252,18 @@ $(document).ready(function(){
     $(this).toggleClass('recording');
   });
 
+  $('.uploadtrack').on('tap', function(){
+    $('.startselector a, #tracklist').removeClass('selected');
+    $(this).addClass('selected');
+    $('#uploadtrack').addClass('selected');
+  });
+
+  $('.choosetrack').on('tap', function(){
+    $('.startselector a, #uploadtrack').removeClass('selected');
+    $(this).addClass('selected');
+    $('#tracklist').addClass('selected');
+  });
+
 
 
 

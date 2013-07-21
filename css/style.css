@@ -130,7 +130,7 @@ nav#primary #touch:before {
   content: "\F0A4";
 }
 nav#primary #load:before {
-  content: "\F0EE";
+  content: "\F015";
 }
 nav#primary #record:before {
   content: "\F111";
@@ -138,6 +138,7 @@ nav#primary #record:before {
 nav#primary #load {
   float: right;
   text-transform: uppercase;
+  text-decoration: none;
 }
 nav#primary #seq1,
 nav#primary #seq2,
@@ -297,7 +298,7 @@ section#sections .section {
 }
 section#sections .section span {
   position: absolute;
-  z-index: 999;
+  z-index: 3;
   top: 50%;
   margin-top: -15px;
   font-size: 2em;
@@ -427,4 +428,37 @@ section#sections .section .part.flash {
   section#sections .section {
     height: 70px;
   }
+}
+#intro .startselector {
+  width: 100%;
+  border-bottom: 2px solid black;
+  margin-bottom: 20px;
+}
+#intro .startselector a {
+  display: block;
+  padding: 20px;
+  width: 50%;
+  float: left;
+  background: black;
+}
+#intro .startselector a.selected {
+  background: #232C30;
+}
+#intro .startselector .choosetrack:before {
+  content: "\F039" !important;
+}
+#intro .startselector .uploadtrack:before {
+  content: "\F0EE" !important;
+}
+#intro #tracklist,
+#intro #uploadtrack {
+  display: none;
+  padding: 20px;
+}
+#intro #tracklist.selected,
+#intro #uploadtrack.selected {
+  display: block;
+}
+#intro #tracklist a {
+  padding-bottom: 15px;
 }

@@ -141,7 +141,7 @@ nav#primary {
   }
 
   #load:before {
-    content: "\F0EE"
+    content: "\F015"
   }
 
   #record:before{
@@ -151,6 +151,7 @@ nav#primary {
   #load {
     float: right;
     text-transform: uppercase;
+    text-decoration: none;
   }
 
   #seq1, #seq2, #seq3 {
@@ -305,7 +306,7 @@ section#sections {
 
     span {
       position: absolute;
-      z-index: 999;
+      z-index: 3;
       top: 50%;
       margin-top: -15px;
       font-size: 2em;
@@ -467,3 +468,50 @@ section#sections {
   }
 
 }
+
+
+#intro {
+  .startselector {
+    width: 100%;
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+
+    a {
+      display: block;
+      padding: 20px;
+      width: 50%;
+      float: left;
+      background: black;
+
+      &.selected {
+        background:#232C30;
+      }
+
+
+    }
+
+    .choosetrack:before {
+        content: "\F039" !important;
+    }
+
+    .uploadtrack:before {
+        content: "\F0EE" !important;
+    }
+
+  }
+
+  #tracklist, #uploadtrack {
+    display: none;
+    padding: 20px;
+  }
+
+  #tracklist.selected, #uploadtrack.selected {
+    display: block;
+  }
+
+  #tracklist a {
+    padding-bottom: 15px;
+  }
+}
+
+

@@ -14,9 +14,22 @@
     <div id="container" class="clear">
 
         <div id="intro" class="clear overlay">
-            <h2>Choose a track</h2>
-            <div class="tracks"></div>
-            <input type="file" id="fileupload"/>
+            <div class="startselector clear">
+                <a href="#tracklist" class="selected choosetrack icon">
+                    Choose a track
+                </a>
+                <a href="#uploadtrack" class="uploadtrack icon">
+                    Upload
+                </a>
+            </div>
+
+            <div id="tracklist" class="selected">
+               <div class="tracks"></div>
+            </div>
+            <div id="uploadtrack">
+               <input type="file" id="fileupload"/>
+            </div>
+            
         </div>
 
         <div id="preloader"></div>

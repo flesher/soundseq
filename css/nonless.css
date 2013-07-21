@@ -5,7 +5,6 @@
   background: #232C30;
   overflow-y: scroll;
   color: white;
-  padding-top: 50px;
   font-size: 1.3em;
   display: none;
   z-index: 999;
@@ -20,7 +19,6 @@
 
 #intro a {
   display: block;
-  margin: 10px 30px;
   text-decoration: none;
   color: #00aeec;
 }
