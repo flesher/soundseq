@@ -22,12 +22,6 @@
   // hide intro when we go sequencer
   app_router.on('route:sequencer', function() {
     $('#intro').fadeOut();
-<<<<<<< HEAD
-    $('#preloader').on('loaded', function(){
-      $(this).fadeOut(500);
-    });
-=======
->>>>>>> ad51ccd04d05289234c83dc6ef0dbafbb2aa1503
   });
 
   app_router.on('route:defaultRoute', function() {
