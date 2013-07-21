@@ -74,7 +74,46 @@ nav#primary {
     &#playpause {
       min-width: 150px;
     }
+
+    &#record {
+      color: #c52626;
+
+      &.recording {
+        -webkit-animation: recording 2000ms ease infinite;
+        -moz-animation:    recording 2000ms ease infinite;
+        -o-animation:      recording 2000ms ease infinite;
+        animation:         recording 2000ms ease infinite;
+      }
+    }
+
+
   }
+
+
+  @keyframes recording {
+  0% {
+    .inner-shadow (0, 0, 22px, 22px, rgba(197,38,38,0.2));
+  }
+  50% {
+    .inner-shadow (0, 0, 22px, 52px, rgba(197,38,38,0.5));
+  }
+  100% {
+    .inner-shadow (0, 0, 22px, 22px, rgba(197,38,38,0.2));
+  }
+  
+}
+
+@-webkit-keyframes recording {
+  0% {
+    .inner-shadow (0, 0, 22px, 22px, rgba(197,38,38,0.2));
+  }
+  50% {
+    .inner-shadow (0, 0, 22px, 52px, rgba(197,38,38,0.5));
+  }
+  100% {
+    .inner-shadow (0, 0, 22px, 22px, rgba(197,38,38,0.2));
+  }
+}
 
   .btn-group {
     margin: 0 auto;
@@ -105,10 +144,13 @@ nav#primary {
     content: "\F0EE"
   }
 
+  #record:before{
+    content: "\F111";
+  }
+
   #load {
     float: right;
     text-transform: uppercase;
-    margin-right: 0;
   }
 
   #seq1, #seq2, #seq3 {
@@ -322,24 +364,66 @@ section#sections {
 @media all and (max-width: 700px) {
 
   nav#primary {
+    height: 70px;
 
     .button {
       min-width: 10%;
       max-width: 30%;
+      height: 70px;
+      padding-top: 24px;
+      font-size: 1.3em;
     }
 
     .btn-group {
-      width: 56%;
+      width: 45%;
       display: block;
       float: left;
 
       .button {
         width: 23%;
       }
+
+      #seq1, #seq2, #seq3 {
+        
+
+        &.sequence .part {
+          width: 6% ;
+          height: 5 px;
+
+          &[data-position="0"] {
+            margin-top: 60px;
+          }
+
+          &[data-position="1"] {
+            margin-top: 50px;
+          }
+
+          &[data-position="2"] {
+            margin-top: 40px;
+          }
+
+          &[data-position="3"] {
+            margin-top: 40px;
+          }
+
+          &[data-position="4"] {
+            margin-top: 30px;
+          }
+
+          &[data-position="5"] {
+            margin-top: 20px;
+          }
+
+          &[data-position="6"] {
+            margin-top: 10px;
+          }
+        }
+      }
     }
 
     #playpause {
       width: 25%;
+      min-width: 0px !important;
 
     }
 
@@ -360,10 +444,10 @@ section#sections {
   }
 
   section#sections {
-    height: 50px;
+    height: 70px;
 
     .section {
-      height: 50px;
+      height: 70px;
     }
   }
 

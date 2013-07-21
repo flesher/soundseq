@@ -51,6 +51,7 @@ $(document).ready(function(){
   });
 
   $('#seq1, #seq2, #seq3').on('tap', function(){
+    $('.sequence .part').removeClass('current');
     $('#seq1, #seq2, #seq3').removeClass('current');
     $(this).addClass('current');
     var tappedSequenceNum = $(this).attr('data-seqNum');
@@ -67,6 +68,10 @@ $(document).ready(function(){
     setTimeout(function(){
       $('#notice').fadeOut();
     }, 900);
+  });
+
+  $('#record').on('tap', function(){
+    $(this).toggleClass('recording');
   });
 
 
