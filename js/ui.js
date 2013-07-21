@@ -9,6 +9,8 @@ $(document).ready(function(){
     footerHeight = $('section#sections').height();
     partsHeight = windowHeight - navHeight - footerHeight - 6;
     $('#parts').height(partsHeight +'px');
+    $('#intro').height(windowHeight + 'px');
+    $('#preloader').height(windowHeight + 'px');
   }
 
   initUI();
