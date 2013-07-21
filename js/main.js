@@ -14,6 +14,10 @@ $(function() {
   $('#intro').on('tap', 'a.track-pick', function(e) {
     sequencer.track($(this).data('track'));
   });
+  $('#fileupload').on('uploaded', function(e, track) {
+    console.log("UPLOADED", e, track);
+    sequencer.track(track);
+  });
 
   // change events
   sequencer.on('beat', function(phase, beat) {

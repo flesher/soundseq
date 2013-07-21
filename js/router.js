@@ -16,7 +16,7 @@
 
   // everything's loaded
   $('#preloader').on('loaded', function(){
-    $('#intro').fadeOut(500);
+    $('#preloader').fadeOut(500);
   });
 
   // hide intro when we go sequencer

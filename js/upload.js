@@ -30,6 +30,9 @@ $(function() {
             var track = data.response.track;
             CONFIG.addTrack(track.id, fileUrl, track.artist, track.title);
             console.log('** ECHONEST COMPLETE **', data, track.audio_summary);
+
+            // play this track
+            $('#fileupload').trigger('uploaded', CONFIG.TRACKS.length - 1);
           }
         }
       });
@@ -42,6 +45,7 @@ $(function() {
     dataType:  'json',
     dropZone:  '#container',
     send: function(e, data) {
+      window.location = '#sequencer';
       console.log('** UPLOADING FILE **', data);
     },
     fail: function(e, data) {
