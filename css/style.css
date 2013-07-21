@@ -27,31 +27,6 @@ body {
 .container {
   position: relative;
 }
-#intro {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background: #f3f3f3;
-  color: white;
-  padding-top: 50px;
-  text-align: center;
-  font-size: 1.5em;
-  display: none;
-  z-index: 999;
-  top: 0;
-  left: 0;
-}
-#intro a {
-  display: inline-block;
-  margin: 10px 30px;
-  text-decoration: none;
-}
-#preloader {
-  position: fixed;
-  top: 0;
-  background: #000 url(../loader.gif) no-repeat 50% 50%;
-  z-index: 50;
-}
 .icon {
   position: relative;
 }
@@ -370,6 +345,25 @@ section#sections .section .part.flash {
   z-index: 999;
   top: 0;
   left: 0;
+}
+#intro {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding-top: 50px;
+  text-align: center;
+  font-size: 1.5em;
+  display: none;
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
+#intro a {
+  display: inline-block;
+  margin: 10px 30px;
+  text-decoration: none;
 }
 @media all and (max-width: 700px) {
   span {
