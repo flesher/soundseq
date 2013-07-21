@@ -98,6 +98,9 @@ section#parts .part {
   -ms-transition: background-color 600ms ease;
   -o-transition: background-color 600ms ease;
 }
+section#parts .part:nth-child(odd) {
+  background: #1f272a;
+}
 section#parts .part.current {
   background: #00aeec;
 }

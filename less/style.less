@@ -112,6 +112,10 @@ section#parts {
     cursor: pointer;
     .transition(background-color 600ms ease);
 
+    &:nth-child(odd){
+      background: @deselected-odd-color;
+    }
+
     &.current {
       background: @selected-color;
     }
@@ -123,6 +127,8 @@ section#parts {
         animation:         pulse 5s infinite; /* IE 10+ */
         .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.3));
     }
+
+
   }
 
 } //section#parts
