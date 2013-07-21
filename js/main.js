@@ -1,7 +1,7 @@
 //
 // starting point for the application
 //
-var track1 = new Track(0);
+var track1 = new Track(4);
 var sequencer = new Sequencer(track1);
 
 $(function() {

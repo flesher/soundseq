@@ -1,13 +1,24 @@
 $(document).ready(function(){
 
-  var windowHeight, navHeight, footerHeight, partHeight;
+  var windowHeight, navHeight, footerHeight, partsHeight, partHeight;
 
   function initUI(){
     windowHeight = $(window).height();
+    windowWidth = $(window).width();
     navHeight = $('nav#primary').height();
     footerHeight = $('section#sections').height();
-    partHeight = windowHeight - navHeight - footerHeight;
-    $('#parts').height(partHeight +'px');
+    // if (windowWidth <= 400) {
+    //   partHeight = windowHeight - navHeight - footerHeight;
+    //   $('#parts .part').height(partHeight +'px');
+    // }
+    partsHeight = windowHeight - navHeight - footerHeight;
+
+
+    console.log(partHeight);
+    
+    $('#parts').height(partsHeight +'px');
+
+
   }
 
   initUI();
