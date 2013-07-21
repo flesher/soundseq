@@ -15,21 +15,26 @@
   var app_router = new AppRouter;
 
   app_router.on('route:sequencer', function() {
+    $('#intro').fadeOut();
 
     $('#preloader').on('loaded', function(){
-      $('#intro').fadeOut();
       $(this).fadeOut(500);
     });
   });
 
   app_router.on('route:defaultRoute', function() {
-    $("#intro").html('')
+    $("#intro").html('');
+
+    // show the configured tracks
     _.each(CONFIG.TRACKS, function(track, idx) {
       $('#intro').append(
         '<a href="#sequencer" class="track-pick" data-track="' + idx + '">' +
         track.artist + ' - ' + track.title + '</a>');
     });
+
+    // fade in
     $('#intro').fadeIn();
+    $('#preloader').fadeIn();
   });
 
   Backbone.history.start();

@@ -20,6 +20,8 @@
 #preloader {
   position: fixed;
   top: 0;
+  width: 100%;
+  opacity: 0.8;
   background: #000 url(../loader.gif) no-repeat 50% 50%;
   z-index: 50;
 }
