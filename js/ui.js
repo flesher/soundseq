@@ -7,25 +7,8 @@ $(document).ready(function(){
     windowWidth = $(window).width();
     navHeight = $('nav#primary').height();
     footerHeight = $('section#sections').height();
-<<<<<<< HEAD
-    partHeight = windowHeight - navHeight - footerHeight;
-    $('#intro').height(windowHeight + 'px');
-    $('#preloader').height(windowHeight + 'px');
-    $('#parts').height(partHeight +'px');
-=======
-    // if (windowWidth <= 400) {
-    //   partHeight = windowHeight - navHeight - footerHeight;
-    //   $('#parts .part').height(partHeight +'px');
-    // }
-    partsHeight = windowHeight - navHeight - footerHeight;
-
-
-    console.log(partHeight);
-    
+    partsHeight = windowHeight - navHeight - footerHeight - 6;
     $('#parts').height(partsHeight +'px');
-
-
->>>>>>> 46c305eeefcb2c46c301212d570bdfc1bb72e32b
   }
 
   initUI();
