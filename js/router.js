@@ -15,9 +15,9 @@
   var app_router = new AppRouter;
 
   app_router.on('route:sequencer', function() {
-    $('#intro').fadeOut();
 
     $('#preloader').on('loaded', function(){
+      $('#intro').fadeOut();
       $(this).fadeOut(500);
     });
   });
