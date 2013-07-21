@@ -13,14 +13,18 @@
     <div id="container" class="clear">
 
         <nav id="primary" class="clear">
-            <div class="icon paused" id="playpause"></div>
+            <div class="icon paused button" id="playpause"></div>
+            <!--
             <div class="icon" id="gyro"></div>
             <div class="icon current" id="touch"></div>
-            <div id="reset" class="">Reset</div>
-            <div id="seq1" class="">Seq1</div>
-            <div id="seq2" class="">Seq2</div>
-            <div id="seq3" class="">Seq3</div>
-            <div class="icon" id="load"></div>
+        -->
+            <div class="btn-group">
+                <div id="reset" class="button icon"></div>
+                <div id="seq1" class="button current">1</div>
+                <div id="seq2" class="button">2</div>
+                <div id="seq3" class="button">3</div>
+            </div><!-- .btn-group -->
+            <div class="icon button" id="load"></div>
         </nav>
 
         <section id="parts" class="clear">
@@ -117,7 +121,11 @@
             </div>
         </section><!-- #sections -->
 
+        
+
     </div><!-- #container -->
+
+    <div id="notice"></div>
 
 
     <!-- libs -->

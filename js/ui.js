@@ -31,11 +31,11 @@ $(document).ready(function(){
   });
 
   $('#parts .part').on('tap', function(){
-    if ($('#touch').hasClass('current')) {
+    //if ($('#touch').hasClass('current')) {
       //manual event fire
       $('#parts div').removeClass('queued');
       $(this).addClass('queued');
-    };
+    //};
   });
 
 
@@ -44,6 +44,23 @@ $(document).ready(function(){
       //manual event fire
       $('#sections div').removeClass('queued');
       $(this).addClass('queued');
+  });
+
+  $('#seq1, #seq2, #seq3').on('tap', function(){
+    $('#seq1, #seq2, #seq3').removeClass('current');
+    $(this).addClass('current');
+  });
+
+  $('#reset').on('tap', function(){
+    $(this).addClass('current');
+    $('#notice').text('Selected Sequence Reset').fadeIn();
+    setTimeout(function(){
+      $('#reset').removeClass('current');
+    }, 200);
+
+    setTimeout(function(){
+      $('#notice').fadeOut();
+    }, 900);
   });
 
 

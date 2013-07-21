@@ -48,8 +48,9 @@ nav#primary {
 
   height: 50px;
 
-  div {
-    width: 78px;
+  .button {
+    min-width: 50px;
+    max-width: 70px;
     height: 50px;
     background: @deselected-color;
     float: left;
@@ -67,11 +68,23 @@ nav#primary {
     &.current {
       background: @selected-color;
     }
+
+    &#playpause {
+      min-width: 90px;
+    }
+  }
+
+  .btn-group {
+    margin: 0 auto;
+    text-align: center;
   }
 
   #playpause:before {
     content: "\F04C" ;
+  }
 
+  #reset:before {
+    content: "\F0E2" ;
   }
 
   .paused:before {
@@ -149,7 +162,7 @@ section#parts {
 
 
 section#sections {
-  height: 50px;
+  height: 70px;
   padding-top: 2px;
 
   .section {
@@ -157,7 +170,7 @@ section#sections {
     color: white;
     background: @deselected-color;
     content: "yeah";
-    height: 50px;
+    height: 70px;
     border-right: 2px solid black;
     float: left;
     cursor: pointer;
@@ -191,3 +204,19 @@ section#sections {
   }
 
 } //section#parts
+
+
+#notice {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding-top: 30%;
+  text-align: center;
+  font-size: 1.5em;
+  display: none;
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
