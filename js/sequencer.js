@@ -116,6 +116,13 @@ Sequencer.prototype.record = function() {
       SC.get('/me', function(me) {
         $('#sc-upload').on('tap', function() {
           console.log("upload to soundcloud", me, self.blob);
+          SC.post({
+            url: '/tracks',
+            params: {
+              title: 'Some track',
+              asset_data: self.blob
+            }
+          });
         });
       });
     });
