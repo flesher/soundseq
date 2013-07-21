@@ -116,4 +116,5 @@ if (extraTracks && extraTracks.length) {
   CONFIG.TRACKS = CONFIG.TRACKS.concat(extraTracks);
 }
 
+// localStorage.setItem('extraTracks', null);
 console.log("TRACKS", CONFIG.TRACKS);
