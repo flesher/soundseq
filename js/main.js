@@ -38,15 +38,6 @@ $(function() {
   $('#reset').on('tap', function() {
     sequencer.reset();
   });
-  $('#seq1').on('tap', function() {
-    sequencer.sequence(0);
-  });
-  $('#seq2').on('tap', function() {
-    sequencer.sequence(1);
-  });
-  $('#seq3').on('tap', function() {
-    sequencer.sequence(2);
-  });
 
 });
 

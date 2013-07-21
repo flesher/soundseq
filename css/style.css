@@ -119,24 +119,43 @@ section#parts .part.flash {
   background: white;
 }
 section#parts .part.queued {
-  -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.3);
-  -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.3);
-  box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.3);
+  -webkit-animation: pulse 300ms ease infinite;
+  -moz-animation: pulse 300ms ease infinite;
+  -o-animation: pulse 300ms ease infinite;
+  animation: pulse 300ms ease infinite;
 }
 @keyframes pulse {
-  from {
-    background: white;
+  0% {
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
   }
-  to {
-    background: #00aeec;
+  50% {
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
   }
 }
 @-webkit-keyframes pulse {
-  from {
-    background: white;
+  0% {
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
   }
-  to {
-    background: #00aeec;
+  50% {
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
   }
 }
 section#sections {
@@ -157,9 +176,10 @@ section#sections .section.current {
   background: #00aeec;
 }
 section#sections .section.queued {
-  -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+  -webkit-animation: pulse 300ms ease infinite;
+  -moz-animation: pulse 300ms ease infinite;
+  -o-animation: pulse 300ms ease infinite;
+  animation: pulse 300ms ease infinite;
 }
 section#sections .section .part {
   width: 12.5%;

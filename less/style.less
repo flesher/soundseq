@@ -142,7 +142,10 @@ section#parts {
     }
 
     &.queued {
-        .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.3));
+      -webkit-animation: pulse 300ms ease infinite;
+      -moz-animation:    pulse 300ms ease infinite;
+      -o-animation:      pulse 300ms ease infinite;
+      animation:         pulse 300ms ease infinite;
     }
 
 
@@ -151,13 +154,28 @@ section#parts {
 } //section#parts
 
 @keyframes pulse {
-  from {background: white;}
-  to {background: @selected-color;}
+  0% {
+    .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.1));
+  }
+  50% {
+    .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.2));
+  }
+  100% {
+    .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.1));
+  }
+  
 }
 
 @-webkit-keyframes pulse {
-  from {background: white;}
-  to {background: @selected-color;}
+  0% {
+    .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.1));
+  }
+  50% {
+    .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.2));
+  }
+  100% {
+    .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.1));
+  }
 }
 
 
@@ -182,7 +200,10 @@ section#sections {
     
 
     &.queued {
-      .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.2))
+      -webkit-animation: pulse 300ms ease infinite;
+      -moz-animation:    pulse 300ms ease infinite;
+      -o-animation:      pulse 300ms ease infinite;
+      animation:         pulse 300ms ease infinite;
     }
 
     .part {

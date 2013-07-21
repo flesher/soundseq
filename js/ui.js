@@ -49,6 +49,8 @@ $(document).ready(function(){
   $('#seq1, #seq2, #seq3').on('tap', function(){
     $('#seq1, #seq2, #seq3').removeClass('current');
     $(this).addClass('current');
+    var tappedSequenceNum = $(this).attr('data-seqNum');
+    sequencer.sequence(tappedSequenceNum);
   });
 
   $('#reset').on('tap', function(){
