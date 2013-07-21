@@ -118,13 +118,17 @@ section#parts {
 
     &.current {
       background: @selected-color;
+      // -webkit-animation: pulse 500ms ease;
+      // -moz-animation:    pulse 500ms ease;
+      // -o-animation:      pulse 500ms ease;
+      // animation:         pulse 500ms ease;
+    }
+
+    &.flash {
+      background: white;
     }
 
     &.queued {
-        -webkit-animation: pulse 5s infinite; /* Safari 4+ */
-        -moz-animation:    pulse 5s infinite; /* Fx 5+ */
-        -o-animation:      pulse 5s infinite; /* Opera 12+ */
-        animation:         pulse 5s infinite; /* IE 10+ */
         .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.3));
     }
 
@@ -134,15 +138,13 @@ section#parts {
 } //section#parts
 
 @keyframes pulse {
-  0% {
-    .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,1));
-  }
-  50% {
-    .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.3));
-  }
-  100% {
-    .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,1));
-  }
+  from {background: white;}
+  to {background: @selected-color;}
+}
+
+@-webkit-keyframes pulse {
+  from {background: white;}
+  to {background: @selected-color;}
 }
 
 
@@ -164,6 +166,8 @@ section#sections {
       background: @selected-color;
     }
 
+    
+
     &.queued {
       .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.2))
     }
@@ -176,6 +180,10 @@ section#sections {
 
       &.current {
         background:rgba(255,255,255,0.4);
+      }
+
+      &.flash {
+        background:rgba(255,255,255,0.7);
       }
     }
 
