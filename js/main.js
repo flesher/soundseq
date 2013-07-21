@@ -1,15 +1,20 @@
 //
 // starting point for the application
 //
-var track1 = new Track(4);
-var sequencer = new Sequencer(track1);
 
 // when track-meta and audio-file are loaded
+var sequencer = new Sequencer();
 sequencer.on('ready', function() {
   $('#preloader').trigger('loaded');
 });
 
 $(function() {
+
+  // load a track
+  $('#intro').on('tap', 'a.track-pick', function(e) {
+    e.preventDefault();
+    sequencer.track($(this).data('track'));
+  });
 
   // change events
   sequencer.on('beat', function(phase, beat) {
