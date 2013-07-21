@@ -12,7 +12,6 @@ $(function() {
 
   // load a track
   $('#intro').on('tap', 'a.track-pick', function(e) {
-    e.preventDefault();
     sequencer.track($(this).data('track'));
   });
 

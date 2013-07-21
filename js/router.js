@@ -23,9 +23,10 @@
   });
 
   app_router.on('route:defaultRoute', function() {
+    $("#intro").html('')
     _.each(CONFIG.TRACKS, function(track, idx) {
       $('#intro').append(
-        '<a href="#" class="track-pick" data-track="' + idx + '">' +
+        '<a href="#sequencer" class="track-pick" data-track="' + idx + '">' +
         track.artist + ' - ' + track.title + '</a>');
     });
     $('#intro').fadeIn();
