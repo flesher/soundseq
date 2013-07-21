@@ -102,7 +102,7 @@ section#parts {
   height: 100%;
   padding-top: 2px;
 
-  div {
+  .part {
     width: 12.5%;
     color: white;
     background: @deselected-color;
@@ -110,8 +110,7 @@ section#parts {
     border-right: 2px solid black;
     float: left;
     cursor: pointer;
-    .transition(background-color 800ms ease);
-    .transition(box-shadow 300ms ease);
+    .transition(background-color 600ms ease);
 
     &.current {
       background: @selected-color;
@@ -145,7 +144,7 @@ section#sections {
   height: 50px;
   padding-top: 2px;
 
-  div {
+  .section {
     width: 12.5%;
     color: white;
     background: @deselected-color;
@@ -161,6 +160,17 @@ section#sections {
 
     &.queued {
       .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.2))
+    }
+
+    .part {
+      width: 12.5%;
+      height: 100%;
+      float: left;
+      .transition(background-color 600ms ease);
+
+      &.current {
+        background:rgba(255,255,255,0.4);
+      }
     }
 
 

@@ -85,7 +85,7 @@ section#parts {
   height: 100%;
   padding-top: 2px;
 }
-section#parts div {
+section#parts .part {
   width: 12.5%;
   color: white;
   background: #232c30;
@@ -93,19 +93,15 @@ section#parts div {
   border-right: 2px solid black;
   float: left;
   cursor: pointer;
-  -webkit-transition: background-color 800ms ease;
-  -moz-transition: background-color 800ms ease;
-  -ms-transition: background-color 800ms ease;
-  -o-transition: background-color 800ms ease;
-  -webkit-transition: box-shadow 300ms ease;
-  -moz-transition: box-shadow 300ms ease;
-  -ms-transition: box-shadow 300ms ease;
-  -o-transition: box-shadow 300ms ease;
+  -webkit-transition: background-color 600ms ease;
+  -moz-transition: background-color 600ms ease;
+  -ms-transition: background-color 600ms ease;
+  -o-transition: background-color 600ms ease;
 }
-section#parts div.current {
+section#parts .part.current {
   background: #00aeec;
 }
-section#parts div.queued {
+section#parts .part.queued {
   -webkit-animation: pulse 5s infinite;
   /* Safari 4+ */
 
@@ -143,7 +139,7 @@ section#sections {
   height: 50px;
   padding-top: 2px;
 }
-section#sections div {
+section#sections .section {
   width: 12.5%;
   color: white;
   background: #232c30;
@@ -153,11 +149,23 @@ section#sections div {
   float: left;
   cursor: pointer;
 }
-section#sections div.current {
+section#sections .section.current {
   background: #00aeec;
 }
-section#sections div.queued {
+section#sections .section.queued {
   -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
   -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
   box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+}
+section#sections .section .part {
+  width: 12.5%;
+  height: 100%;
+  float: left;
+  -webkit-transition: background-color 600ms ease;
+  -moz-transition: background-color 600ms ease;
+  -ms-transition: background-color 600ms ease;
+  -o-transition: background-color 600ms ease;
+}
+section#sections .section .part.current {
+  background: rgba(255, 255, 255, 0.4);
 }

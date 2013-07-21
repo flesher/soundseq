@@ -9,9 +9,9 @@ $(function() {
   // change events
   sequencer.on('beat', function(phase, beat) {
     console.log('beat', phase, beat);
-    $('#parts div').removeClass('current');
-    $('#parts div[data-part="'+beat+'"]').addClass('current');
-    $('#parts div').removeClass('queued');
+    $('#parts .part, #sections .section.current .part').removeClass('current');
+    $('#parts .part[data-part="'+beat+'"],#sections .section.current .part[data-part="'+beat+'"]').addClass('current');
+    $('#parts .part, #sections .section').removeClass('queued');
   });
 
   // section switcher
