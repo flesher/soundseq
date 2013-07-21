@@ -105,17 +105,17 @@ Sequencer.prototype.record = function() {
     $('#overlay').fadeIn(500);
 
     // initialize client with app credentials
-    // SC.initialize({
-    //   client_id: '9b7291a67b6cf337be413154874a4f90',
-    //   redirect_uri: 'http://localhost:8888/music-hack-day/#sequencer'
-    // });
+    SC.initialize({
+      client_id: '9b7291a67b6cf337be413154874a4f90',
+      redirect_uri: 'http://localhost:8888/music-hack-day/#sequencer'
+    });
 
     // initiate auth popup
-    // SC.connect(function() {
-    //   SC.get('/me', function(me) {
-    //     alert('Hello, ' + me.username);
-    //   });
-    // });
+    SC.connect(function() {
+      SC.get('/me', function(me) {
+        alert('Hello, ' + me.username);
+      });
+    });
 
     // save the wav file
     this._rec.exportWAV(function(blob) {
@@ -123,7 +123,7 @@ Sequencer.prototype.record = function() {
     });
   }
   else {
-    this._rec = new Recorder(this.howl._audioNode[0]);
+    this._rec = new Recordr(this.howl._audioNode[0]);
     this._rec.record();
     this._armed = true;
   }
