@@ -27,26 +27,6 @@ body {
 .container {
   position: relative;
 }
-#intro {
-  width: 100%;
-  background: #fff;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-}
-#preloader {
-  width: 100%;
-  background: #000 url(../loader.gif) no-repeat 50% 50%;
-  position: fixed;
-  top: 0;
-  z-index: 50;
-}
-#enter {
-  text-align: center;
-  color: #fff;
-  padding: 10px 15px;
-  background: #232c30;
-}
 .icon {
   position: relative;
 }
@@ -71,7 +51,7 @@ nav#primary .button {
   float: left;
   color: white;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 28px;
   cursor: pointer;
   margin-right: 2px;
   -khtml-user-select: none;
@@ -79,7 +59,7 @@ nav#primary .button {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
 nav#primary .button.current {
   background: #00aeec;
@@ -130,6 +110,10 @@ nav#primary #seq3 .part {
   position: relative;
   bottom: 0;
   margin-right: 2px;
+  -webkit-transition: background-color 600ms ease;
+  -moz-transition: background-color 600ms ease;
+  -ms-transition: background-color 600ms ease;
+  -o-transition: background-color 600ms ease;
 }
 nav#primary #seq1 .part[data-position="0"],
 nav#primary #seq2 .part[data-position="0"],
@@ -165,6 +149,11 @@ nav#primary #seq1 .part[data-position="6"],
 nav#primary #seq2 .part[data-position="6"],
 nav#primary #seq3 .part[data-position="6"] {
   margin-top: 10px;
+}
+nav#primary #seq1 .part.current,
+nav#primary #seq2 .part.current,
+nav#primary #seq3 .part.current {
+  background: rgba(255, 255, 255, 0.6);
 }
 section#parts {
   height: 100%;
@@ -267,11 +256,24 @@ section#sections .section .part {
 section#sections .section .part.current {
   background: rgba(255, 255, 255, 0.4);
 }
-
 section#sections .section .part.flash {
   background: rgba(255, 255, 255, 0.7);
 }
 #notice {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding-top: 30%;
+  text-align: center;
+  font-size: 1.5em;
+  display: none;
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
+#intro {
   width: 100%;
   height: 100%;
   position: fixed;

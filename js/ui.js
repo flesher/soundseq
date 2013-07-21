@@ -8,16 +8,10 @@ $(document).ready(function(){
     navHeight = $('nav#primary').height();
     footerHeight = $('section#sections').height();
 
-
+    partsHeight = windowHeight - navHeight - footerHeight - 6;
+    $('#parts').height(partsHeight +'px');
     $('#intro').height(windowHeight + 'px');
     $('#preloader').height(windowHeight + 'px');
-    $('#parts').height(partHeight +'px');
-
-    // if (windowWidth <= 400) {
-    //   partHeight = windowHeight - navHeight - footerHeight;
-    //   $('#parts .part').height(partHeight +'px');
-    // }
-
   }
 
   initUI();

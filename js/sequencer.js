@@ -22,7 +22,7 @@ function Sequencer(track) {
     autoplay: false,
     onload: function() {
       self._loaded = true;
-      if (self.playing) self._playLoop();
+      if (self._loaded && self._trackReady) self.fire('ready');
     }
   });
 
@@ -30,7 +30,8 @@ function Sequencer(track) {
   track.ready(function() {
     self.section(0);
     self.sequence(0);
-    if (self.playing) self._playLoop();
+    self._trackReady = true;
+    if (self._loaded && self._trackReady) self.fire('ready');
   });
 
 }
@@ -99,20 +100,11 @@ Sequencer.prototype.sequence = function(idx) {
     return this._sequenceIdx;
   }
   else if (idx != this._sequenceIdx) {
-    if (this._sequence) {
+    if (this._starterPack[this._sequenceIdx]) {
       this._starterPack[this._sequenceIdx] = this._sequence;
     }
     this._sequenceIdx = idx;
-
-
-    var sequences = [
-      [0,1,2,3,4,5,6,7],
-      [0,1,2,3,4,5,6,7],
-      [0,1,2,3,4,5,6,7]
-    ];
-
     this._sequence = this._starterPack[idx];
-
   }
 }
 

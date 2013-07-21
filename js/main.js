@@ -4,11 +4,16 @@
 var track1 = new Track(4);
 var sequencer = new Sequencer(track1);
 
+// when track-meta and audio-file are loaded
+sequencer.on('ready', function() {
+  $('#preloader').trigger('loaded');
+});
+
 $(function() {
 
   // change events
   sequencer.on('beat', function(phase, beat) {
-    $('#parts .part, #sections .section .part').removeClass('current');
+    $('#parts .part, #sections .section .part.current').removeClass('current');
     $('#parts .part[data-part="'+beat+'"]').addClass('current');
     $('#sections .section.queued').addClass('current').removeClass('queued');
     $('#parts .part[data-part="'+beat+'"],#sections .section.current .part[data-part="'+beat+'"]').addClass('current flash');
@@ -16,6 +21,9 @@ $(function() {
     setTimeout(function(){
       $('#parts .part[data-part="'+beat+'"],#sections .section.current .part[data-part="'+beat+'"]').removeClass('flash')
     }, 100);
+    $('.button.sequence.current .part[data-part="'+phase+'"]').attr('data-position', beat);
+    $('.button.sequence.current .part.current').removeClass('current');
+    $('.button.sequence.current .part[data-part="'+phase+'"]').addClass('current');
   });
 
   // play button
