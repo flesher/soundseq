@@ -18,5 +18,14 @@ $(function() {
     $(this).hasClass('paused') ? sequencer.play() : sequencer.pause();
   });
 
+  // section switcher
+  $('#sections > div').on('tap', function() {
+    if (!$(this).hasClass('current')) {
+      $('#sections .current').removeClass('current');
+      $(this).addClass('current');
+      sequencer.section($(this).data('section'));
+    }
+  });
+
 });
 

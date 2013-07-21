@@ -1,3 +1,7 @@
+// config
+var CONFIDENCE_THRESHOLD = 0.3;
+var BEATS_PER_SECTION = 8;
+
 //
 // the track class
 //
@@ -41,13 +45,8 @@ function Track(index) {
           this.analysis = data;
           this.init();
 
-          // execute any ready callbacks, when/if DOM is ready
-          callbacks = this.readyFn;
-          $(function() {
-            for (var i=0; i<callbacks.length; i++) {
-              callbacks[i]();
-            }
-          });
+          // execute any ready callbacks
+          _.each(this.readyFn, function(cb) { cb(); });
         }
       });
     }
@@ -61,27 +60,38 @@ function Track(index) {
 Track.prototype.init = function() {
   analysis = this.analysis;
 
+  // don't run the entire beats array every time
+  var beatIndex = 0;
+
   // 1) find usable sections
   var sections = [];
-  _.each(analysis.sections, function(sect) {
+  _.each(analysis.bars, function(bar, idx) {
+    if (bar.confidence >= CONFIDENCE_THRESHOLD) {
+      var newSection = {
+        start: bar.start,
+        startBar: idx,
+        beats: []
+      }
 
-    // must have high confidence to be usable
-    if (sect.confidence > 0.5) {
-      sect.end = sect.start + sect.duration;
+      // find some beats in this section
+      for (beatIndex; beatIndex <= analysis.beats.length; beatIndex++) {
+        var beat = analysis.beats[beatIndex];
+        if (beat.start >= newSection.start) {
+          newSection.beats = analysis.beats.slice(beatIndex, beatIndex + BEATS_PER_SECTION);
+          break;
+        }
+      }
 
-      // 2) find the beats of this section
-      sect.beats = _.filter(analysis.beats, function(beat) {
-        beat.end = beat.start + beat.duration;
-        return (beat.start >= sect.start && beat.end <= sect.end);
-      });
-
-      // use it!
-      sections.push(sect);
+      // must have minimum beats to actually be a section
+      if (newSection.beats.length == BEATS_PER_SECTION) {
+        sections.push(newSection);
+      }
     }
   });
 
   // assign it
   this.sections = sections;
+  console.log('found ' + sections.length + ' sections with confidence > ' + CONFIDENCE_THRESHOLD);
 }
 
 

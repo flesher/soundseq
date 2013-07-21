@@ -56,7 +56,7 @@ Sequencer.prototype._playLoop = function() {
 
 // event handling (single - TODO multiple)
 Sequencer.prototype.on = function(event, callback, scope) {
-  this.handlers[event] = _.bind(callback, scope);
+  this.handlers[event] = _.bind(callback, scope || this);
 }
 Sequencer.prototype.off = function(event, callback) {
   delete this.handlers[event];
