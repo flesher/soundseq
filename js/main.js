@@ -10,8 +10,9 @@ $(function() {
   sequencer.on('beat', function(phase, beat) {
     $('#parts .part, #sections .section .part').removeClass('current');
     $('#parts .part[data-part="'+beat+'"]').addClass('current');
+    $('#sections .section.queued').addClass('current').removeClass('queued');
     $('#parts .part[data-part="'+beat+'"],#sections .section.current .part[data-part="'+beat+'"]').addClass('current flash');
-    $('#parts .part.queued, #sections .section.queued').removeClass('queued');
+    $('#parts .part.queued').removeClass('queued');
     setTimeout(function(){
       $('#parts .part[data-part="'+beat+'"],#sections .section.current .part[data-part="'+beat+'"]').removeClass('flash')
     }, 100);
@@ -27,8 +28,8 @@ $(function() {
   // section switcher
   $('#sections > .section').on('tap', function() {
     if (!$(this).hasClass('current')) {
-      $('#sections .current').removeClass('current');
-      $(this).addClass('current');
+      $('#sections .current, #sections .section').removeClass('current');
+      $(this).addClass('queued');
       sequencer.section($(this).data('section'));
     }
   });
