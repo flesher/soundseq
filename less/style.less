@@ -210,6 +210,8 @@ section#parts {
   padding-top: 2px;
 
   .part {
+    text-align: center;
+    position: relative;
     width: 12.5%;
     color: white;
     background: @deselected-color;
@@ -218,6 +220,16 @@ section#parts {
     float: left;
     cursor: pointer;
     .transition(background-color 600ms ease);
+
+    span {
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+      font-size: 2em;
+      left: 50%;
+      margin-left: -8px;
+      color: rgba(0,0,0,0.3);
+    }
 
     &:nth-child(odd){
       background: @deselected-odd-color;
@@ -229,6 +241,9 @@ section#parts {
       // -moz-animation:    pulse 500ms ease;
       // -o-animation:      pulse 500ms ease;
       // animation:         pulse 500ms ease;
+      span {
+        color: rgba(255,255,255,0.3);
+      }
     }
 
     &.flash {
@@ -279,6 +294,7 @@ section#sections {
 
   .section {
     width: 12.5%;
+    position: relative;
     color: white;
     background: @deselected-color;
     content: "yeah";
@@ -287,8 +303,23 @@ section#sections {
     float: left;
     cursor: pointer;
 
+    span {
+      position: absolute;
+      z-index: 999;
+      top: 50%;
+      margin-top: -15px;
+      font-size: 2em;
+      left: 50%;
+      margin-left: -8px;
+      color: rgba(0,0,0,0.3);
+    }
+
     &.current {
       background: @selected-color;
+
+      span {
+        color: rgba(255,255,255,0.3);
+      }
     }
 
 
@@ -308,6 +339,8 @@ section#sections {
 
       &.current {
         background:rgba(255,255,255,0.4);
+
+        
       }
 
       &.flash {
@@ -337,31 +370,13 @@ section#sections {
 }
 
 
-#intro {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background: rgba(0,0,0,0.8);
-  color: white;
-  padding-top: 50px;
-  text-align: center;
-  font-size: 1.5em;
-  display: none;
-  z-index: 999;
-  top: 0;
-  left: 0;
-
-  a {
-    display: inline-block;
-    margin: 10px 30px;
-    text-decoration: none;
-  }
-
-}
-
 // Media Queries
 
 @media all and (max-width: 700px) {
+
+  span {
+    display: none;
+  }
 
   nav#primary {
     height: 70px;

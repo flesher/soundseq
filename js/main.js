@@ -3,6 +3,11 @@
 //
 
 // when track-meta and audio-file are loaded
+
+if(window.location.hash) {
+  window.location.hash="";
+}
+
 var sequencer = new Sequencer();
 sequencer.on('ready', function() {
   sequencer.howl.play();
@@ -15,6 +20,10 @@ $(function() {
   // load a track
   $('#intro').on('tap', 'a.track-pick', function(e) {
     sequencer.track($(this).data('track'));
+  });
+  $('#fileupload').on('uploaded', function(e, track) {
+    console.log("UPLOADED", e, track);
+    sequencer.track(track);
   });
 
   // change events

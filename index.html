@@ -13,8 +13,10 @@
 
     <div id="container" class="clear">
 
-        <div id="intro" class="clear">
+        <div id="intro" class="clear overlay">
             <h2>Choose a track</h2>
+            <div class="tracks"></div>
+            <input type="file" id="fileupload"/>
         </div>
 
         <div id="preloader"></div>
@@ -63,18 +65,19 @@
         </nav>
 
         <section id="parts" class="clear">
-            <div class="part" data-part="0"></div>
-            <div class="part" data-part="1"></div>
-            <div class="part" data-part="2"></div>
-            <div class="part" data-part="3"></div>
-            <div class="part" data-part="4"></div>
-            <div class="part" data-part="5"></div>
-            <div class="part" data-part="6"></div>
-            <div class="part" data-part="7"></div>
+            <div class="part" data-part="0"><span>A</span></div>
+            <div class="part" data-part="1"><span>S</span></div>
+            <div class="part" data-part="2"><span>D</span></div>
+            <div class="part" data-part="3"><span>F</span></div>
+            <div class="part" data-part="4"><span>G</span></div>
+            <div class="part" data-part="5"><span>H</span></div>
+            <div class="part" data-part="6"><span>J</span></div>
+            <div class="part" data-part="7"><span>K</span></div>
         </section><!-- #parts -->
 
         <section id="sections">
             <div data-section="0" class="section clear current">
+                <span>z</span>
                 <div class="part" data-part="0"></div>
                 <div class="part" data-part="1"></div>
                 <div class="part" data-part="2"></div>
@@ -85,6 +88,7 @@
                 <div class="part" data-part="7"></div>
             </div>
             <div data-section="1" class="section clear">
+                <span>x</span>
                 <div class="part" data-part="0"></div>
                 <div class="part" data-part="1"></div>
                 <div class="part" data-part="2"></div>
@@ -95,6 +99,7 @@
                 <div class="part" data-part="7"></div>
             </div>
             <div data-section="2" class="section clear">
+                <span>c</span>
                 <div class="part" data-part="0"></div>
                 <div class="part" data-part="1"></div>
                 <div class="part" data-part="2"></div>
@@ -105,6 +110,7 @@
                 <div class="part" data-part="7"></div>
             </div>
             <div data-section="3" class="section clear">
+                <span>v</span>
                 <div class="part" data-part="0"></div>
                 <div class="part" data-part="1"></div>
                 <div class="part" data-part="2"></div>
@@ -115,6 +121,7 @@
                 <div class="part" data-part="7"></div>
             </div>
             <div data-section="4" class="section clear">
+                <span>b</span>
                 <div class="part" data-part="0"></div>
                 <div class="part" data-part="1"></div>
                 <div class="part" data-part="2"></div>
@@ -125,6 +132,7 @@
                 <div class="part" data-part="7"></div>
             </div>
             <div data-section="5" class="section clear">
+                <span>n</span>
                 <div class="part" data-part="0"></div>
                 <div class="part" data-part="1"></div>
                 <div class="part" data-part="2"></div>
@@ -135,6 +143,7 @@
                 <div class="part" data-part="7"></div>
             </div>
             <div data-section="6" class="section clear">
+                <span>m</span>
                 <div class="part" data-part="0"></div>
                 <div class="part" data-part="1"></div>
                 <div class="part" data-part="2"></div>
@@ -145,6 +154,7 @@
                 <div class="part" data-part="7"></div>
             </div>
             <div data-section="7" class="section clear">
+                <span>&lt;</span>
                 <div class="part" data-part="0"></div>
                 <div class="part" data-part="1"></div>
                 <div class="part" data-part="2"></div>
@@ -184,8 +194,14 @@
 
     <script type="text/javascript" src="js/libs/jquery.tap.min.js"></script>
 
+    <script type="text/javascript" src="js/libs/jquery.hotkeys.js"></script>
+
     <script type="text/javascript" src="js/libs/howler.min.js"></script>
     <script type="text/javascript" src="js/libs/recorder.js"></script>
+
+    <script type="text/javascript" src="js/libs/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="js/libs/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="js/libs/jquery.fileupload.js"></script>
 
     <!--<script type="text/javascript" src="http://connect.soundcloud.com/sdk.js"></script>-->
 
@@ -197,6 +213,7 @@
     <script type="text/javascript" src="js/strategy.js"></script>
     <script type="text/javascript" src="js/track.js"></script>
     <script type="text/javascript" src="js/sequencer.js"></script>
+    <script type="text/javascript" src="js/upload.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/ui.js"></script>
     <script type="text/javascript" src="js/router.js"></script>
