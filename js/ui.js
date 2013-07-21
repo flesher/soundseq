@@ -28,4 +28,21 @@ $(document).ready(function(){
 
 
 
+
+  $('#parts div').on('tap', function(){
+      var val = parseInt($(this).attr('data-part'));
+      sequencer.update(val);
+
+
+    // var now = sequencer.phase;
+    // var val = $(this).attr('data-part');
+
+    // for (var i = 0; sequencer.sequence.length)
+
+    // console.log (now + ' ' + val);
+
+  })
+
+
+
 }) // doc ready

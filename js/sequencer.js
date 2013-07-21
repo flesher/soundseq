@@ -93,6 +93,7 @@ Sequencer.prototype.sequence = function(idx) {
   }
   else if (idx != this._sequenceIdx) {
     this._sequenceIdx = idx;
+
     var sequences = [
       [0,1,2,3,4,5,6,7],
       [0,0,2,2,3,3,4,4],
@@ -101,8 +102,19 @@ Sequencer.prototype.sequence = function(idx) {
       [1,1,1,1,1,1,1,1],
       [2,2,2,2,2,2,2,2]
     ];
+
     this._sequence = sequences[idx];
   }
+}
+
+Sequencer.prototype.update = function(part) {
+  var phs = this.phase;
+  var len = this._sequence.length - part;
+  for (var i = phs; i < len; i++){
+    this._sequence[i] = part  + (i - phs);
+  }
+
+  console.log(this._sequence);
 }
 
 // start playback
