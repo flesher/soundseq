@@ -37,6 +37,11 @@ $(function() {
     $('#parts .part, #sections .section').removeClass('queued');
   });
 
+  // record button
+  $('#record').on('tap', function() {
+    sequencer.record();
+  });
+
   // section switcher
   $('#sections > .section').on('tap', function() {
     if (!$(this).hasClass('current')) {

@@ -96,6 +96,26 @@ Sequencer.prototype.track = function(idx) {
   }
 }
 
+// start/stop recording
+Sequencer.prototype.record = function() {
+  if (this._armed) {
+    this._rec.stop();
+    this._armed = false;
+
+    // save the wav file
+    this._rec.exportWAV(function(blob) {
+      console.log('DONE RECORDING', blob);
+      var soundFile = blob;
+      return soundFile;
+    });
+  }
+  else {
+    this._rec = new Recorder(this.howl._audioNode[0]);
+    this._rec.record();
+    this._armed = true;
+  }
+}
+
 // get/set the current section
 Sequencer.prototype.section = function(idx) {
   if (idx === undefined) {
