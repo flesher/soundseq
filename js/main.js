@@ -4,6 +4,11 @@
 var track1 = new Track(4);
 var sequencer = new Sequencer(track1);
 
+// when track-meta and audio-file are loaded
+sequencer.on('ready', function() {
+  $('#preloader').trigger('loaded');
+});
+
 $(function() {
 
   // change events
