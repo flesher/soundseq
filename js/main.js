@@ -3,6 +3,11 @@
 //
 
 // when track-meta and audio-file are loaded
+
+if(window.location.hash) {
+  window.location.hash="";
+}
+
 var sequencer = new Sequencer();
 sequencer.on('ready', function() {
   $('#preloader').trigger('loaded');

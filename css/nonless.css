@@ -19,7 +19,7 @@
 }
 
 #intro a {
-  display: inline-block;
+  display: block;
   margin: 10px 30px;
   text-decoration: none;
   color: #00aeec;
