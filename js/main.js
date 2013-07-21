@@ -9,10 +9,12 @@ $(function() {
   // change events
   sequencer.on('beat', function(phase, beat) {
     console.log('beat', phase, beat);
+    $('#parts div').removeClass('current');
+    $('#parts div[data-part="'+beat+'"]').addClass('current');
   });
 
   // play button
-  $('#playpause').click(function() {
+  $('#playpause').on('tap', function(){
     $(this).hasClass('paused') ? sequencer.play() : sequencer.pause();
   });
 
