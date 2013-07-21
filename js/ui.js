@@ -7,6 +7,8 @@ $(document).ready(function(){
     navHeight = $('nav#primary').height();
     footerHeight = $('section#sections').height();
     partHeight = windowHeight - navHeight - footerHeight;
+    $('#intro').height(windowHeight + 'px');
+    $('#preloader').height(windowHeight + 'px');
     $('#parts').height(partHeight +'px');
   }
 

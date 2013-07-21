@@ -27,6 +27,26 @@ body {
 .container {
   position: relative;
 }
+#intro {
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+#preloader {
+  width: 100%;
+  background: #000 url(../loader.gif) no-repeat 50% 50%;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+}
+#enter {
+  text-align: center;
+  color: #fff;
+  padding: 10px 15px;
+  background: #232c30;
+}
 .icon {
   position: relative;
 }
