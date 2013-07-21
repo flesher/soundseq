@@ -47,14 +47,13 @@ track1.ready(function() {
   });
 
   function playSlice() {
-    var num = Math.floor(Math.random() * 8);
     var sprite = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
     var sliceToPlay;
 
     sliceToPlay = sequence[seq][phase];
 
     $('#parts div').removeClass('current');
-    $('#parts div[data-part="'+num+'"]').addClass('current');
+    $('#parts div[data-part="'+sliceToPlay+'"]').addClass('current');
 
     console.log(sliceToPlay + ' ' + phase);
 
@@ -70,6 +69,10 @@ track1.ready(function() {
     }, track1.beat(1, phase)[1] );
   }
 
-  playSlice();
+  $(window).on('tap', function() {
+    playSlice();
+  });
+
+
 });
 
