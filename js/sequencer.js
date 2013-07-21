@@ -34,7 +34,7 @@ function Sequencer(track) {
 
 // the main play loop
 Sequencer.prototype._playLoop = function() {
-  if (this.playing && this._sequence && this._loaded) {
+  if (this.playing && this._sequence && this._sectionBeats && this._loaded) {
     var beatNames = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight'];
     var beatIdx   = this._sequence[this.phase];
     var beatName  = beatNames[beatIdx];
@@ -107,14 +107,12 @@ Sequencer.prototype.sequence = function(idx) {
   }
 }
 
-Sequencer.prototype.update = function(part) {
-  var phs = this.phase;
-  var len = this._sequence.length - part;
-  for (var i = phs; i < len; i++){
-    this._sequence[i] = part  + (i - phs);
+// replace the next phase in the sequence
+Sequencer.prototype.replace = function(part) {
+  if (this._sequence) {
+    this._sequence[this.phase] = part;
+    console.log(this._sequence);
   }
-
-  console.log(this._sequence);
 }
 
 // start playback

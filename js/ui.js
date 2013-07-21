@@ -11,9 +11,9 @@ $(document).ready(function(){
   }
 
   initUI();
-  
+
   $(window).resize(function() {
-    initUI();     
+    initUI();
   });
 
   $('#playpause').on('tap', function(){
@@ -40,7 +40,7 @@ $(document).ready(function(){
 
 
   $('#sections div').on('tap', function(){
-    
+
       //manual event fire
       $('#sections div').removeClass('queued');
       $(this).addClass('queued');
@@ -51,7 +51,7 @@ $(document).ready(function(){
 
   $('#parts div').on('tap', function(){
       var val = parseInt($(this).attr('data-part'));
-      sequencer.update(val);
+      sequencer.replace(val);
 
 
     // var now = sequencer.phase;
