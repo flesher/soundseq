@@ -103,22 +103,26 @@ Sequencer.prototype.record = function() {
     this._armed = false;
     this.howl.stop();
     $('#overlay').fadeIn(500);
+    self = this;
 
     // initialize client with app credentials
     SC.initialize({
       client_id: '9b7291a67b6cf337be413154874a4f90',
-      redirect_uri: 'http://localhost:8888/music-hack-day/#sequencer'
+      redirect_uri: 'http://cav.is/soundseq/callback.html'
     });
 
     // initiate auth popup
     SC.connect(function() {
       SC.get('/me', function(me) {
-        alert('Hello, ' + me.username);
+        $('#sc-upload').on('tap', function() {
+          console.log("upload to soundcloud", me, self.blob);
+        });
       });
     });
 
     // save the wav file
     this._rec.exportWAV(function(blob) {
+      self.blob = blob;
       console.log('DONE RECORDING', blob);
     });
   }
