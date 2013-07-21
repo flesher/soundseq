@@ -102,11 +102,22 @@ Sequencer.prototype.record = function() {
     this._rec.stop();
     this._armed = false;
 
+    // initialize client with app credentials
+    // SC.initialize({
+    //   client_id: '9b7291a67b6cf337be413154874a4f90',
+    //   redirect_uri: 'http://localhost:8888/music-hack-day/#sequencer'
+    // });
+
+    // initiate auth popup
+    // SC.connect(function() {
+    //   SC.get('/me', function(me) {
+    //     alert('Hello, ' + me.username);
+    //   });
+    // });
+
     // save the wav file
     this._rec.exportWAV(function(blob) {
       console.log('DONE RECORDING', blob);
-      var soundFile = blob;
-      return soundFile;
     });
   }
   else {
