@@ -17,16 +17,6 @@ function Sequencer(track) {
     [0, 1, 2, 3, 4, 5, 6, 7],
     [0, 1, 2, 3, 4, 5, 6, 7]
   ];
-
-  // init playback
-  this.howl = new Howl({
-    autoplay: false,
-    onload: function() {
-      self._loaded = true;
-      if (self._loaded && self._trackReady) self.fire('ready');
-    }
-  });
-
 }
 
 //
@@ -72,21 +62,28 @@ Sequencer.prototype.track = function(idx) {
     return this._trackIdx;
   }
   else if (idx != this._trackIdx) {
+    var self = this;
     this._trackIdx   = idx;
     this._loaded     = false;
     this._trackReady = false;
 
     // load track
     this._track = new Track(idx);
-    this.howl.urls([this._track.file]);
-
-    // init sequence/section
-    self = this;
     this._track.ready(function() {
       self.section(0);
       self.sequence(0);
       self._trackReady = true;
       if (self._loaded && self._trackReady) self.fire('ready');
+    });
+
+    // init sound
+    this.howl = new Howl({
+      urls: [this._track.file],
+      autoplay: false,
+      onload: function() {
+        self._loaded = true;
+        if (self._loaded && self._trackReady) self.fire('ready');
+      }
     });
   }
 }
