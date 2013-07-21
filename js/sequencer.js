@@ -6,8 +6,10 @@ function Sequencer(track) {
 
   // properties
   this.phase    = 0;
-  this.track    = track;
+  this._track   = track;
   this.handlers = {};
+  this._loaded  = false;
+  this._trackReady = false;
 
   // sequences starter pack
   this._starterPack = [
@@ -18,20 +20,11 @@ function Sequencer(track) {
 
   // init playback
   this.howl = new Howl({
-    urls: [track.file],
     autoplay: false,
     onload: function() {
       self._loaded = true;
       if (self._loaded && self._trackReady) self.fire('ready');
     }
-  });
-
-  // init sequence/section
-  track.ready(function() {
-    self.section(0);
-    self.sequence(0);
-    self._trackReady = true;
-    if (self._loaded && self._trackReady) self.fire('ready');
   });
 
 }
@@ -73,6 +66,31 @@ Sequencer.prototype.fire = function(event) {
   if (this.handlers[event]) this.handlers[event].apply(this, _.rest(arguments))
 }
 
+// get/set the track
+Sequencer.prototype.track = function(idx) {
+  if (idx === undefined) {
+    return this._trackIdx;
+  }
+  else if (idx != this._trackIdx) {
+    this._trackIdx   = idx;
+    this._loaded     = false;
+    this._trackReady = false;
+
+    // load track
+    this._track = new Track(idx);
+    this.howl.urls([this._track.file]);
+
+    // init sequence/section
+    self = this;
+    this._track.ready(function() {
+      self.section(0);
+      self.sequence(0);
+      self._trackReady = true;
+      if (self._loaded && self._trackReady) self.fire('ready');
+    });
+  }
+}
+
 // get/set the current section
 Sequencer.prototype.section = function(idx) {
   if (idx === undefined) {
@@ -81,14 +99,14 @@ Sequencer.prototype.section = function(idx) {
   else if (idx != this._sectionIdx) {
     this._sectionIdx = idx;
     this._sectionBeats = {
-      one:   this.track.beat(idx, 0),
-      two:   this.track.beat(idx, 1),
-      three: this.track.beat(idx, 2),
-      four:  this.track.beat(idx, 3),
-      five:  this.track.beat(idx, 4),
-      six:   this.track.beat(idx, 5),
-      seven: this.track.beat(idx, 6),
-      eight: this.track.beat(idx, 7)
+      one:   this._track.beat(idx, 0),
+      two:   this._track.beat(idx, 1),
+      three: this._track.beat(idx, 2),
+      four:  this._track.beat(idx, 3),
+      five:  this._track.beat(idx, 4),
+      six:   this._track.beat(idx, 5),
+      seven: this._track.beat(idx, 6),
+      eight: this._track.beat(idx, 7)
     };
     this.howl.sprite(this._sectionBeats);
   }

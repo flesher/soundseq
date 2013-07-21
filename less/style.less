@@ -90,7 +90,7 @@ nav#primary {
   }
 
   .paused:before {
-    content: "\F04B" !important; 
+    content: "\F04B" !important;
   }
 
   #gyro:before{
@@ -158,7 +158,7 @@ nav#primary {
       }
 
     }
-    
+
   }
 
 } // nav#primary
@@ -215,7 +215,7 @@ section#parts {
   100% {
     .inner-shadow (0, 0, 12px, 3px, rgba(255,255,255,0.1));
   }
-  
+
 }
 
 @-webkit-keyframes pulse {
@@ -249,7 +249,7 @@ section#sections {
       background: @selected-color;
     }
 
-    
+
 
     &.queued {
       -webkit-animation: pulse 300ms ease infinite;
@@ -301,13 +301,20 @@ section#sections {
   position: fixed;
   background: rgba(0,0,0,0.8);
   color: white;
-  padding-top: 30%;
+  padding-top: 50px;
   text-align: center;
   font-size: 1.5em;
   display: none;
   z-index: 999;
   top: 0;
   left: 0;
+
+  a {
+    display: inline-block;
+    margin: 10px 30px;
+    text-decoration: none;
+  }
+
 }
 
 // Media Queries
@@ -344,7 +351,7 @@ section#sections {
 
 
   section#parts {
-    
+
     .part {
       width: 25%;
       height: 50%;
