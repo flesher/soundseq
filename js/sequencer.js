@@ -63,17 +63,21 @@ Sequencer.prototype.track = function(idx) {
   }
   else if (idx != this._trackIdx) {
     var self = this;
-    this._trackIdx   = idx;
-    this._loaded     = false;
-    this._trackReady = false;
+    this._trackIdx    = idx;
+    this._loaded      = false;
+    this._trackReady  = false;
+    this._sectionIdx  = undefined;
+    this._sequenceIdx = undefined;
 
     // load track
     this._track = new Track(idx);
     this._track.ready(function() {
-      self.section(0);
-      self.sequence(0);
       self._trackReady = true;
-      if (self._loaded && self._trackReady) self.fire('ready');
+      if (self._loaded && self._trackReady) {
+        self.section(0);
+        self.sequence(0);
+        self.fire('ready');
+      }
     });
 
     // init sound
@@ -82,7 +86,11 @@ Sequencer.prototype.track = function(idx) {
       autoplay: false,
       onload: function() {
         self._loaded = true;
-        if (self._loaded && self._trackReady) self.fire('ready');
+        if (self._loaded && self._trackReady) {
+          self.section(0);
+          self.sequence(0);
+          self.fire('ready');
+        }
       }
     });
   }
