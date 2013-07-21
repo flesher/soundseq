@@ -42,8 +42,9 @@ body {
 nav#primary {
   height: 50px;
 }
-nav#primary div {
-  width: 78px;
+nav#primary .button {
+  min-width: 50px;
+  max-width: 70px;
   height: 50px;
   background: #232c30;
   float: left;
@@ -58,11 +59,21 @@ nav#primary div {
   -webkit-user-select: none;
   user-select: none;
 }
-nav#primary div.current {
+nav#primary .button.current {
   background: #00aeec;
+}
+nav#primary .button#playpause {
+  min-width: 90px;
+}
+nav#primary .btn-group {
+  margin: 0 auto;
+  text-align: center;
 }
 nav#primary #playpause:before {
   content: "\F04C";
+}
+nav#primary #reset:before {
+  content: "\F0E2";
 }
 nav#primary .paused:before {
   content: "\F04B" !important;
@@ -104,42 +115,51 @@ section#parts .part:nth-child(odd) {
 section#parts .part.current {
   background: #00aeec;
 }
+section#parts .part.flash {
+  background: white;
+}
 section#parts .part.queued {
-  -webkit-animation: pulse 5s infinite;
-  /* Safari 4+ */
-
-  -moz-animation: pulse 5s infinite;
-  /* Fx 5+ */
-
-  -o-animation: pulse 5s infinite;
-  /* Opera 12+ */
-
-  animation: pulse 5s infinite;
-  /* IE 10+ */
-
-  -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.3);
-  -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.3);
-  box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.3);
+  -webkit-animation: pulse 300ms ease infinite;
+  -moz-animation: pulse 300ms ease infinite;
+  -o-animation: pulse 300ms ease infinite;
+  animation: pulse 300ms ease infinite;
 }
 @keyframes pulse {
   0% {
-    -webkit-box-shadow: inset 0 0 12px 3px #ffffff;
-    -moz-box-shadow: inset 0 0 12px 3px #ffffff;
-    box-shadow: inset 0 0 12px 3px #ffffff;
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
   }
   50% {
-    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.3);
-    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.3);
-    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
   }
   100% {
-    -webkit-box-shadow: inset 0 0 12px 3px #ffffff;
-    -moz-box-shadow: inset 0 0 12px 3px #ffffff;
-    box-shadow: inset 0 0 12px 3px #ffffff;
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+  }
+}
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.1);
   }
 }
 section#sections {
-  height: 50px;
+  height: 70px;
   padding-top: 2px;
 }
 section#sections .section {
@@ -147,7 +167,7 @@ section#sections .section {
   color: white;
   background: #232c30;
   content: "yeah";
-  height: 50px;
+  height: 70px;
   border-right: 2px solid black;
   float: left;
   cursor: pointer;
@@ -156,9 +176,10 @@ section#sections .section.current {
   background: #00aeec;
 }
 section#sections .section.queued {
-  -webkit-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
-  -moz-box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 0 12px 3px rgba(255, 255, 255, 0.2);
+  -webkit-animation: pulse 300ms ease infinite;
+  -moz-animation: pulse 300ms ease infinite;
+  -o-animation: pulse 300ms ease infinite;
+  animation: pulse 300ms ease infinite;
 }
 section#sections .section .part {
   width: 12.5%;
@@ -173,10 +194,20 @@ section#sections .section .part.current {
   background: rgba(255, 255, 255, 0.4);
 }
 
-#wave {
-  position: fixed; 
-  top: 0;
-  height: 100%;
+section#sections .section .part.flash {
+  background: rgba(255, 255, 255, 0.7);
+}
+#notice {
   width: 100%;
-  z-index: 100;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding-top: 30%;
+  text-align: center;
+  font-size: 1.5em;
+  display: none;
+  z-index: 999;
+  top: 0;
+  left: 0;
 }

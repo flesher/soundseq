@@ -1,7 +1,7 @@
 //
 // starting point for the application
 //
-var track1 = new Track(3);
+var track1 = new Track(0);
 var sequencer = new Sequencer(track1);
 
 $(function() {
@@ -10,8 +10,12 @@ $(function() {
   sequencer.on('beat', function(phase, beat) {
     $('#parts .part, #sections .section .part').removeClass('current');
     $('#parts .part[data-part="'+beat+'"]').addClass('current');
-    $('#parts .part[data-part="'+beat+'"],#sections .section.current .part[data-part="'+beat+'"]').addClass('current');
-    $('#parts .part.queued, #sections .section.queued').removeClass('queued');
+    $('#sections .section.queued').addClass('current').removeClass('queued');
+    $('#parts .part[data-part="'+beat+'"],#sections .section.current .part[data-part="'+beat+'"]').addClass('current flash');
+    $('#parts .part.queued').removeClass('queued');
+    setTimeout(function(){
+      $('#parts .part[data-part="'+beat+'"],#sections .section.current .part[data-part="'+beat+'"]').removeClass('flash')
+    }, 100);
   });
 
   // play button
@@ -24,8 +28,8 @@ $(function() {
   // section switcher
   $('#sections > .section').on('tap', function() {
     if (!$(this).hasClass('current')) {
-      $('#sections .current').removeClass('current');
-      $(this).addClass('current');
+      $('#sections .current, #sections .section').removeClass('current');
+      $(this).addClass('queued');
       sequencer.section($(this).data('section'));
     }
   });
@@ -33,15 +37,6 @@ $(function() {
   // sequence switchers/reset
   $('#reset').on('tap', function() {
     sequencer.reset();
-  });
-  $('#seq1').on('tap', function() {
-    sequencer.sequence(0);
-  });
-  $('#seq2').on('tap', function() {
-    sequencer.sequence(1);
-  });
-  $('#seq3').on('tap', function() {
-    sequencer.sequence(2);
   });
 
 });
