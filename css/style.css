@@ -346,25 +346,6 @@ section#sections .section .part.flash {
   top: 0;
   left: 0;
 }
-#intro {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding-top: 50px;
-  text-align: center;
-  font-size: 1.5em;
-  display: none;
-  z-index: 999;
-  top: 0;
-  left: 0;
-}
-#intro a {
-  display: inline-block;
-  margin: 10px 30px;
-  text-decoration: none;
-}
 @media all and (max-width: 700px) {
   span {
     display: none;

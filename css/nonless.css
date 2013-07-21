@@ -1,21 +1,28 @@
 #intro {
   width: 100%;
   height: 100%;
-  position: fixed;
-  background: #f3f3f3;
+  position: absolute;
+  background: #232C30;
+  overflow-y: scroll;
   color: white;
   padding-top: 50px;
-  text-align: center;
-  font-size: 1.5em;
+  font-size: 1.3em;
   display: none;
   z-index: 999;
   top: 0;
   left: 0;
 }
+
+#intro h2 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
 #intro a {
   display: inline-block;
   margin: 10px 30px;
   text-decoration: none;
+  color: #00aeec;
 }
 #preloader {
   position: fixed;
