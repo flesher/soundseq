@@ -9,6 +9,13 @@ function Sequencer(track) {
   this.track    = track;
   this.handlers = {};
 
+  // sequences starter pack
+  this._starterPack = [
+    [0, 1, 2, 3, 4, 5, 6, 7],
+    [0, 1, 2, 3, 4, 5, 6, 7],
+    [0, 1, 2, 3, 4, 5, 6, 7]
+  ];
+
   // init playback
   this.howl = new Howl({
     urls: [track.file],
@@ -92,19 +99,18 @@ Sequencer.prototype.sequence = function(idx) {
     return this._sequenceIdx;
   }
   else if (idx != this._sequenceIdx) {
+    if (this._sequence) {
+      this._starterPack[this._sequenceIdx] = this._sequence;
+    }
     this._sequenceIdx = idx;
-
-    var sequences = [
-      [0,1,2,3,4,5,6,7],
-      [0,0,2,2,3,3,4,4],
-      [7,6,5,4,3,2,1,0],
-      [0,0,0,0,0,0,0,0],
-      [1,1,1,1,1,1,1,1],
-      [2,2,2,2,2,2,2,2]
-    ];
-
-    this._sequence = sequences[idx];
+    this._sequence = this._starterPack[idx];
   }
+}
+
+// reset the current sequence back to default
+Sequencer.prototype.reset = function() {
+  this._sequence = [0, 1, 2, 3, 4, 5, 6, 7];
+  this._starterPack[this._sequenceIdx] = this._sequence;
 }
 
 // replace the next phase in the sequence
