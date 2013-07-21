@@ -19,7 +19,8 @@ $(function() {
           console.error("WOH THERE!", jqXHR, textStatus);
         },
         success: function(data, textStatus, jqXHR) {
-          if (data.response.track.status == 'pending') {
+          var track = data.response.track || {};
+          if (data.response.track.status == 'pending' && !track.audio_summary) {
             console.log('** ECHONEST PENDING **', data);
             _.delay(uploadToEchonest, 3000, fileUrl, data.response.track.id);
           }
@@ -27,7 +28,6 @@ $(function() {
             console.log('** ECHONEST UNABLE TO PROCESS **', data);
           }
           else {
-            var track = data.response.track;
             CONFIG.addTrack(track.id, fileUrl, track.artist, track.title);
             console.log('** ECHONEST COMPLETE **', data, track.audio_summary);
 
