@@ -1,6 +1,7 @@
 // config
 var CONFIDENCE_THRESHOLD = 0.3;
 var BEATS_PER_SECTION = 8;
+var MINIMUM_SECTIONS = 8;
 
 //
 // the track class
@@ -43,7 +44,16 @@ function Track(index) {
         },
         success: function(data, textStatus, jqXHR) {
           this.analysis = data;
-          this.init();
+
+          // try to get at least 8 sections
+          var threshold = CONFIDENCE_THRESHOLD;
+          this.init(threshold);
+          var attempts = 1;
+          while (this.sections.length < MINIMUM_SECTIONS && attempts < 4) {
+            threshold -= 0.1;
+            this.init(threshold);
+            attempts++;
+          }
 
           // execute any ready callbacks
           _.each(this.readyFn, function(cb) { cb(); });
@@ -57,8 +67,8 @@ function Track(index) {
 //
 // what data is usable, and format it into something we can use
 //
-Track.prototype.init = function() {
-  analysis = this.analysis;
+Track.prototype.init = function(threshold) {
+  var analysis = this.analysis;
 
   // don't run the entire beats array every time
   var beatIndex = 0;
@@ -66,7 +76,7 @@ Track.prototype.init = function() {
   // 1) find usable sections
   var sections = [];
   _.each(analysis.bars, function(bar, idx) {
-    if (bar.confidence >= CONFIDENCE_THRESHOLD) {
+    if (bar.confidence >= threshold) {
       var newSection = {
         start: bar.start,
         startBar: idx,
@@ -91,7 +101,7 @@ Track.prototype.init = function() {
 
   // assign it
   this.sections = sections;
-  console.log('found ' + sections.length + ' sections with confidence > ' + CONFIDENCE_THRESHOLD);
+  console.log('found ' + sections.length + ' sections with confidence > ' + threshold);
 }
 
 
