@@ -82,5 +82,37 @@ CONFIG = {
       artist:   'Pretty Lights',
       title:    'Reel 7 Break 1'
     },
-  ]
+  ],
+  addTrack: function(id, file, artist, title) {
+    var xtra = localStorage.getItem('extraTracks');
+    try {
+      xtra = JSON.parse(xtra);
+    }
+    catch (e) {
+      xtra = false;
+    }
+    if (!xtra || !xtra.length) xtra = [];
+
+    // don't push duplicate files
+    if (_.where(CONFIG.TRACKS, {track_id: id}).length == 0) {
+      obj = { track_id: id, file: file, artist: artist, title: title };
+      xtra.push(obj);
+      CONFIG.TRACKS.push(obj);
+      localStorage.setItem('extraTracks', JSON.stringify(xtra));
+    }
+  }
 };
+
+// add any stored tracks to the list
+var extraTracks = localStorage.getItem('extraTracks');
+try {
+  extraTracks = JSON.parse(extraTracks);
+}
+catch (e) {
+  extraTracks = false;
+}
+if (extraTracks && extraTracks.length) {
+  CONFIG.TRACKS = CONFIG.TRACKS.concat(extraTracks);
+}
+
+console.log("TRACKS", CONFIG.TRACKS);
