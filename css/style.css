@@ -60,18 +60,18 @@ body {
   height: 100%;
 }
 nav#primary {
-  height: 50px;
+  height: 80px;
   text-align: center;
 }
 nav#primary .button {
-  min-width: 50px;
-  max-width: 70px;
-  height: 50px;
+  min-width: 100px;
+  max-width: 120px;
+  height: 80px;
   background: #232c30;
   float: left;
   color: white;
   text-align: center;
-  padding-top: 15px;
+  padding-top: 30px;
   cursor: pointer;
   margin-right: 2px;
   -khtml-user-select: none;
@@ -79,12 +79,13 @@ nav#primary .button {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  font-size: 1.3em;
 }
 nav#primary .button.current {
   background: #00aeec;
 }
 nav#primary .button#playpause {
-  min-width: 90px;
+  min-width: 150px;
 }
 nav#primary .btn-group {
   margin: 0 auto;
@@ -112,6 +113,58 @@ nav#primary #load {
   float: right;
   text-transform: uppercase;
   margin-right: 0;
+}
+nav#primary #seq1,
+nav#primary #seq2,
+nav#primary #seq3 {
+  position: relative;
+  padding-top: 0;
+}
+nav#primary #seq1 .part,
+nav#primary #seq2 .part,
+nav#primary #seq3 .part {
+  width: 10.5%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  float: left;
+  position: relative;
+  bottom: 0;
+  margin-right: 2px;
+}
+nav#primary #seq1 .part[data-position="0"],
+nav#primary #seq2 .part[data-position="0"],
+nav#primary #seq3 .part[data-position="0"] {
+  margin-top: 70px;
+}
+nav#primary #seq1 .part[data-position="1"],
+nav#primary #seq2 .part[data-position="1"],
+nav#primary #seq3 .part[data-position="1"] {
+  margin-top: 60px;
+}
+nav#primary #seq1 .part[data-position="2"],
+nav#primary #seq2 .part[data-position="2"],
+nav#primary #seq3 .part[data-position="2"] {
+  margin-top: 50px;
+}
+nav#primary #seq1 .part[data-position="3"],
+nav#primary #seq2 .part[data-position="3"],
+nav#primary #seq3 .part[data-position="3"] {
+  margin-top: 40px;
+}
+nav#primary #seq1 .part[data-position="4"],
+nav#primary #seq2 .part[data-position="4"],
+nav#primary #seq3 .part[data-position="4"] {
+  margin-top: 30px;
+}
+nav#primary #seq1 .part[data-position="5"],
+nav#primary #seq2 .part[data-position="5"],
+nav#primary #seq3 .part[data-position="5"] {
+  margin-top: 20px;
+}
+nav#primary #seq1 .part[data-position="6"],
+nav#primary #seq2 .part[data-position="6"],
+nav#primary #seq3 .part[data-position="6"] {
+  margin-top: 10px;
 }
 section#parts {
   height: 100%;
@@ -180,7 +233,7 @@ section#parts .part.queued {
   }
 }
 section#sections {
-  height: 70px;
+  height: 100px;
   padding-top: 2px;
 }
 section#sections .section {
@@ -188,7 +241,7 @@ section#sections .section {
   color: white;
   background: #232c30;
   content: "yeah";
-  height: 70px;
+  height: 100px;
   border-right: 2px solid black;
   float: left;
   cursor: pointer;
@@ -232,7 +285,7 @@ section#sections .section .part.flash {
   top: 0;
   left: 0;
 }
-@media all and (max-width: 400px) {
+@media all and (max-width: 700px) {
   nav#primary .button {
     min-width: 10%;
     max-width: 30%;
