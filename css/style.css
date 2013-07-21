@@ -442,7 +442,8 @@ section#sections .section .part.flash {
   background: black;
 }
 #intro .startselector a.selected {
-  background: #232C30;
+  background: #00aeec;
+  color: white;
 }
 #intro .startselector .choosetrack:before {
   content: "\F039" !important;
