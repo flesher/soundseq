@@ -11,6 +11,7 @@ $(function() {
     $('#parts .part, #sections .section .part').removeClass('current');
     $('#parts .part[data-part="'+beat+'"]').addClass('current');
     $('#parts .part[data-part="'+beat+'"],#sections .section.current .part[data-part="'+beat+'"]').addClass('current');
+    $('#parts .part.queued, #sections .section.queued').removeClass('queued');
   });
 
   // play button
