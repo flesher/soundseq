@@ -172,3 +172,11 @@ section#sections .section .part {
 section#sections .section .part.current {
   background: rgba(255, 255, 255, 0.4);
 }
+
+#wave {
+  position: fixed; 
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+}
