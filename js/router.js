@@ -43,7 +43,7 @@
     });
 
     // fade in
-    //$('#intro').fadeIn();
+    $('#intro').show();
     $('#preloader').fadeIn();
   });
 
