@@ -152,8 +152,10 @@ $(document).ready(function(){
     }
   });
 
+
+
   $(document).bind('keypress', '1',function (evt){
-    if (sequencer.track){
+    if (sequencer.track && evt.charCode == '49'){
       $('.sequence .part').removeClass('current');
       $('#seq1, #seq2, #seq3').removeClass('current');
       $('#seq1').addClass('current');
@@ -162,7 +164,7 @@ $(document).ready(function(){
   });
 
   $(document).bind('keypress', '2',function (evt){
-    if (sequencer.track){
+    if (sequencer.track && evt.charCode == '50'){
       $('.sequence .part').removeClass('current');
       $('#seq1, #seq2, #seq3').removeClass('current');
       $('#seq2').addClass('current');
@@ -171,7 +173,7 @@ $(document).ready(function(){
   });
 
   $(document).bind('keypress', '3',function (evt){
-    if (sequencer.track){
+    if (sequencer.track && evt.charCode == '51'){
       $('.sequence .part').removeClass('current');
       $('#seq1, #seq2, #seq3').removeClass('current');
       $('#seq3').addClass('current');
