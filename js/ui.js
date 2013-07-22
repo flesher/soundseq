@@ -2,6 +2,13 @@ $(document).ready(function(){
 
   var windowHeight, navHeight, footerHeight, partsHeight, partHeight;
 
+  // pause player if you switch tabs
+
+  window.addEventListener('blur', function() {
+      if (sequencer.playing) {
+        playpause();
+      };
+  },false);
   
   //keyboard shortcuts
 
@@ -141,6 +148,7 @@ $(document).ready(function(){
   $(document).bind('keypress', 'r',function (evt){
     if (sequencer.track){
       $('#record').toggleClass('recording');
+      sequencer.record();
     }
   });
 
