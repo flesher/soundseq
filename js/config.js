@@ -3,7 +3,8 @@
 //
 CONFIG = {
   APIKEY: '2AQJ9UWXKNBMZWHZ0',
-  SCKEY: '9b7291a67b6cf337be413154874a4f90',
+  SC_KEY: '9b7291a67b6cf337be413154874a4f90',
+  SC_CALLBACK: 'http://cav.is/soundseq/callback.html',
   TRACKS: [
     {
       track_id: 'TRHEAIX13FFDA5F848',

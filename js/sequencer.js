@@ -99,38 +99,61 @@ Sequencer.prototype.track = function(idx) {
 // start/stop recording
 Sequencer.prototype.record = function() {
   if (this._armed) {
+    self = this;
     this._rec.stop();
     this._armed = false;
-    this.howl.stop();
+
+    // UI transitions (sorry!)
     $('#overlay').fadeIn(500);
-    self = this;
+    if (!$('#playpause').hasClass('paused')) {
+      $('#playpause').trigger('tap');
+    }
+
+    // save the wav file
+    this._rec.exportWAV(function(blob) {
+      self.blob = blob;
+      var url = URL.createObjectURL(blob);
+    });
 
     // initialize client with app credentials
     SC.initialize({
-      client_id: '9b7291a67b6cf337be413154874a4f90',
-      redirect_uri: 'http://cav.is/soundseq/callback.html'
+      client_id: CONFIG.SC_CLIENTID,
+      redirect_uri: CONFIG.SC_CALLBACK
     });
 
     // initiate auth popup
     SC.connect(function() {
       SC.get('/me', function(me) {
+
+        // start the upload
         $('#sc-upload').on('tap', function() {
-          console.log("upload to soundcloud", me, self.blob);
-          SC.post({
-            url: '/tracks',
-            params: {
-              title: 'Some track',
-              asset_data: self.blob
+
+          // sneaky form
+          var fd = new FormData();
+          fd.append('oauth_token', SC.accessToken());
+          fd.append('track[title]', $('#sc-title').val() || 'SoundSeq Upload');
+          fd.append('track[asset_data]', self.blob);
+
+          // post it!
+          $.ajax({
+            type: 'POST',
+            url: 'https://api.soundcloud.com/tracks',
+            data: fd,
+            processData: false,
+            contentType: false,
+            error: function(jqXHR, textStatus, errorThrown) {
+              console.error("sc error!", jqXHR, textStatus);
+              alert('Unable to upload your file at this time');
+            },
+            success: function(data, textStatus, jqXHR) {
+              console.error("sc success!", data, textStatus, jqXHR);
+              $('#overlay').fadeOut(500);
+              alert('Your file has been saved');
             }
           });
         });
-      });
-    });
 
-    // save the wav file
-    this._rec.exportWAV(function(blob) {
-      self.blob = blob;
-      console.log('DONE RECORDING', blob);
+      });
     });
   }
   else {
