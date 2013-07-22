@@ -146,7 +146,7 @@ Sequencer.prototype.record = function() {
               alert('Unable to upload your file at this time');
             },
             success: function(data, textStatus, jqXHR) {
-              console.error("sc success!", data, textStatus, jqXHR);
+              console.log("sc success!", data, textStatus, jqXHR);
               $('#overlay').fadeOut(500);
               alert('Your file has been saved');
             }
